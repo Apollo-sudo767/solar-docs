@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Solar",
   description: "Dendritic Flake & Fleet Orchestration for NixOS and macOS",
-  base: "/solar/",
+  base: "/solar-docs/",
   cleanUrls: true,
 
   head: [
