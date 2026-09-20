@@ -1,0 +1,4020 @@
+[
+  {
+    "path": "myFeatures.suites.creator.aniCli.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Ani-CLI anime streaming CLI.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.creator.davinci.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable DaVinci Resolve Studio video editor.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.creator.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Content Creation & Media Production Suite (DaVinci Resolve, OBS Studio, VLC, Ani-CLI, Media Tools).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.creator.mediaTools.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable universal media tools, codecs, and MPV.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.creator.obs.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable OBS Studio screen recorder and streaming suite.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.creator.vlc.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable VLC media player.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.darwinWorkstation.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Darwin (macOS) Workstation Suite.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.darwinWorkstation.homebrew.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable declarative Homebrew bundle integration.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.darwinWorkstation.office.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable AP-Office suite on Darwin.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.darwinWorkstation.terminal.antigravity",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Antigravity AI pair programmer.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.darwinWorkstation.terminal.direnv",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Direnv automatic environment switcher.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.darwinWorkstation.terminal.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable macOS terminal and developer tools.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.darwinWorkstation.terminal.fastfetch",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Fastfetch system visualizer.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.darwinWorkstation.terminal.helix",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Helix modal editor.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.darwinWorkstation.utilities.filemanager",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable file manager.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.development.antigravity.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Antigravity AI pair programming assistant.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.development.direnv.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Direnv automatic environment switching.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.development.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Advanced Development Suite (Helix, Git, Direnv, Nix-LD, Antigravity, Fastfetch).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.development.fastfetch.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Fastfetch system visualizer.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.development.git.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Git version control.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.development.helix.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Helix modal text editor.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.development.nh.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable NH Nix CLI helper.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.development.nixLd.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable nix-ld dynamic binary loader.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.audio.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable PipeWire low-latency gaming audio.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.controllers.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable gamepad controller subsystem.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.controllers.nintendo",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Nintendo Switch Pro controller support.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.controllers.playstation",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable PlayStation DualSense controller drivers.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.controllers.xbox",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Xbox One & Series controller drivers and xpadneo.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Gaming Suite (Steam, GameScope, Controllers, Audio & Communication).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.bedrockOnLinux",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable BedrockOnLinux (alias for minecraft.bedrock.windows).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.mcpelauncher",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable MCPELauncher (alias for minecraft.bedrock.android).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.minecraft.android",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Minecraft Bedrock for Android (MCPELauncher via Flatpak).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.minecraft.bedrock",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Minecraft: Bedrock Edition.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.minecraft.bedrockOnLinux",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable BedrockOnLinux (Minecraft Bedrock for Windows).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.minecraft.java",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Minecraft: Java Edition (Prism Launcher).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.minecraft.windows",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Minecraft Bedrock for Windows (BedrockOnLinux).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.prism",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Prism Minecraft launcher (alias for games.minecraft.java).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.roblox",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Roblox (Sober via Flatpak).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.sober",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Sober (alias for games.roblox).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.games.tf2",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Team Fortress 2 competitive suite.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.minecraft.bedrock.android",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Minecraft Bedrock for Android (MCPELauncher via Flatpak).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.minecraft.bedrock.bedrockOnLinux",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable BedrockOnLinux (Minecraft Bedrock for Windows).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.minecraft.bedrock.edition",
+    "type": "enum",
+    "default": "\"windows\"",
+    "description": "Minecraft Bedrock Edition toggle: 'windows' (BedrockOnLinux) or 'android' (MCPELauncher).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.minecraft.bedrock.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Minecraft: Bedrock Edition.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.minecraft.bedrock.windows",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Minecraft Bedrock for Windows (BedrockOnLinux).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.minecraft.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Minecraft gaming suite.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.minecraft.java.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Minecraft: Java Edition (Prism Launcher).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.social.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable social communication suite (Vesktop & Spotify Player).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.social.minimal",
+    "type": "bool",
+    "default": "true",
+    "description": "Use minimal/lightweight social suite clients.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.steam.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable native Steam gaming platform.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.steam.gamescope",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable GameScope micro-compositor wrapper.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.steam.protonInstaller",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable ProtonUp-Qt compatibility tool manager.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.gaming.voip.mumble",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Mumble low-latency VoIP client with Wayland push-to-talk.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.hardened.appArmor.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable AppArmor kernel module and profile enforcement.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.hardened.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Security Hardening Suite (AppArmor, OOMD).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.hardened.oomd.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Systemd OOMD memory pressure monitoring daemon.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.laptop.battery.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable battery charge thresholds and TLP power profile optimizations.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.laptop.bluetooth.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Bluetooth peripheral support.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.laptop.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Laptop Suite (Battery, Bluetooth, WiFi, Trackpad & Power Management).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.laptop.idle.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable automatic idle screen locking and display sleep.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.laptop.trackpad.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable multi-touch trackpad gestures and natural scrolling.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.laptop.wifi.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable WiFi network stack and state persistence.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.minimal.browser.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable default browser (Firefox).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.minimal.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Minimal Desktop & Tool Suite (Lightweight Desktop, Minimal Tools & TUI Clients).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.minimal.media.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable lightweight media playback tools.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.minimal.office.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable lightweight modular office tools (AbiWord, Gnumeric, PDFArranger, Evince).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.minimal.social.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable minimal social suite (Vesktop + Spotify Player).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.minimal.terminal.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable essential terminal and developer tools (Helix, Ghostty, Git, NH, Fastfetch, Direnv, Nix-LD).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.minimal.utilities.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable core utilities (Bitwarden, File Manager).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.networking.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Mesh Networking & Resolved DNS Suite (Tailscale, Resolved).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.networking.resolved.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Systemd-Resolved DNS resolution daemon.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.networking.tailscale.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Tailscale WireGuard mesh VPN node.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.productivity.apOffice.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable complete AP-Office suite (LibreOffice, OnlyOffice, Zotero, Typst, Joplin, etc.) when mode is 'full'.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.productivity.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Productivity & Office Suite (AP-Office / Lightweight Office, Printing).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.productivity.lightweight.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable lightweight modular office tools (AbiWord, Gnumeric, PDFArranger, Evince) when mode is 'lightweight'.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.productivity.mode",
+    "type": "enum",
+    "default": "\"full\"",
+    "description": "Productivity suite profile: 'full' for AP-Office (heavy document suite) or 'lightweight' for modular tools.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.productivity.printing.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable CUPS printing daemon subsystem.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.server.automation.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable automated Nix store garbage collection & maintenance.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.server.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Server Suite (Headless, Hardened SSH, Tailscale, Automated maintenance).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.server.lix.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable modern Lix package engine.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.server.security.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable base security hardening profiles.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.server.shell.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable interactive CLI shell environment (Zsh + Starship).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.server.ssh.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable hardened key-only OpenSSH server daemon.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.server.tailscale.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Tailscale mesh node connectivity.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.server.udisks2.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Udisks2 storage daemon.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.streaming.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Game & Display Streaming Host Suite (Sunshine).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.streaming.port",
+    "type": "int",
+    "default": "48000",
+    "description": "Sunshine server port",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.virtualization.docker.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Docker container engine.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.virtualization.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Virtualization & Containers Suite (Podman, Docker, QEMU/KVM, Virt-Manager).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.virtualization.libvirt.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Libvirt/QEMU hypervisor subsystem.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.browser.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable web browser (Firefox).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Workstation Suite (Development tools, Terminal, Browsers, Utilities, Audio).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.minimal",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable minimal / lightweight variants for workstation tools.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.services.audio",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable PipeWire low-latency audio stack.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.services.flatpak",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Flatpak application runtime.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.services.udisks2",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Udisks2 storage auto-mounting daemon.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.services.xdgPortals",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable XDG Desktop Portals subsystem.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.terminal.antigravity",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Antigravity AI pair programming agent.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.terminal.direnv",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Direnv automatic environment switching.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.terminal.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable developer terminal toolchain.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.terminal.fastfetch",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Fastfetch system visualizer.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.terminal.ghostty",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Ghostty GPU-accelerated terminal emulator.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.terminal.git",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Git version control system.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.terminal.helix",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Helix modal editor.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.terminal.nh",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable NH Nix CLI helper.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.terminal.nix-ld",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable nix-ld dynamic binary execution.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.utilities.bitwarden",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Bitwarden credential manager.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.utilities.filemanager",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable desktop & terminal file managers.",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.workstation.utilities.social",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable social communication suite (Vesktop & Spotify Player).",
+    "section": "\ud83c\udf32 Suites: Role & Workflow"
+  },
+  {
+    "path": "myFeatures.suites.desktops.awesome.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable AwesomeWM Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.bspwm.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Bspwm Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.budgie.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Budgie Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.cinnamon.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Cinnamon Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.cosmic.audio.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable PipeWire low-latency audio.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.cosmic.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable COSMIC Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.cosmic.printing.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable CUPS printing daemon.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.gnome.audio.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable PipeWire low-latency audio.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.gnome.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable GNOME Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.gnome.filemanager.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Nautilus file manager.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.gnome.filemanager.yazi",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Yazi terminal file manager.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.gnome.printing.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable CUPS printing daemon.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.hyprland.addons.swaync",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable SwayNC notification center.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.hyprland.addons.swayosd",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable SwayOSD on-screen display for volume and brightness.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.hyprland.addons.waybar",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Waybar status bar.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.hyprland.audio.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable PipeWire low-latency audio.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.hyprland.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Hyprland Desktop Suite (Hyprland + Waybar + SwayNC + ReGreet + Nautilus + Yazi + Audio + Portals).",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.hyprland.filemanager.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Nautilus file manager.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.hyprland.filemanager.yazi",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Yazi terminal file manager.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.hyprland.xdgPortals.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable XDG desktop portals.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.i3.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable i3 X11 Desktop Suite (i3 + Picom + ReGreet + Nautilus + Yazi + Audio).",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.labwc.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Labwc Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.lxqt.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable LXQt Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.mangowc.addons.swayosd",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable SwayOSD on-screen display for volume and brightness.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.mangowc.audio.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable PipeWire low-latency audio.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.mangowc.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable MangoWC Desktop Suite (MangoWC + ReGreet + Nautilus + Yazi + Audio + Portals).",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.mangowc.filemanager.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Nautilus file manager.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.mangowc.filemanager.yazi",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Yazi terminal file manager.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.mangowc.xdgPortals.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable XDG desktop portals.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.mate.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable MATE Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.niri.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Niri Desktop Suite (Niri + Keybinds + ReGreet + Nautilus + Yazi + Audio + Portals).",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.niri.shell",
+    "type": "enum",
+    "default": "\"noctalia-v5\"",
+    "description": "Desktop shell/bar to enable with the Niri suite",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.plasma.audio.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable PipeWire low-latency audio.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.plasma.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable KDE Plasma Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.plasma.filemanager.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Dolphin file manager.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.plasma.filemanager.yazi",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Yazi terminal file manager.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.plasma.printing.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable CUPS printing daemon.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.qtile.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Qtile Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.sway.addons.swaync",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable SwayNC notification center.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.sway.addons.swayosd",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable SwayOSD on-screen display for volume and brightness.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.sway.addons.waybar",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Waybar status bar.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.sway.audio.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable PipeWire low-latency audio.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.sway.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Sway Desktop Suite (Sway + Waybar + SwayNC + ReGreet + Nautilus + Yazi + Audio + Portals).",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.sway.filemanager.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Nautilus file manager.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.sway.filemanager.yazi",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Yazi terminal file manager.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.sway.xdgPortals.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable XDG desktop portals.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.wayfire.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Wayfire Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.suites.desktops.xfce.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable XFCE Desktop Suite.",
+    "section": "\ud83d\udda5\ufe0f Suites: Desktop Environments & Compositors"
+  },
+  {
+    "path": "myFeatures.programs.terminal.antigravity.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Antigravity CLI Agent.",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.direnv.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable direnv and nix-direnv auto-environment loader.",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.fastfetch.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable fastfetch system info fetcher.",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.fastfetch.logoType",
+    "type": "enum",
+    "default": "\"auto\"",
+    "description": "Logo rendering backend.",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.ghostty.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Ghostty Terminal Emulator.",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.git.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Git Configuration.",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.git.userEmail",
+    "type": "str",
+    "default": "\"\"",
+    "description": "Git user email",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.git.userName",
+    "type": "str",
+    "default": "\"\"",
+    "description": "Git user name",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.git.users",
+    "type": "attrsOf",
+    "default": "{}",
+    "description": "Per-user git configuration overrides",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.helix.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Helix Editor.",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.nh.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable nh (Nix Helper) integration.",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.terminal.nix-ld.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable nix-ld helper for running unpatched binaries.",
+    "section": "\ud83d\udcbb Programs: Terminal & Developer Tools"
+  },
+  {
+    "path": "myFeatures.programs.browsers.chrome.default",
+    "type": "bool",
+    "default": "false",
+    "description": "Set Chrome/Chromium as the default browser",
+    "section": "\ud83c\udf10 Programs: Web Browsers"
+  },
+  {
+    "path": "myFeatures.programs.browsers.chrome.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Enables Chromium-based browsers.",
+    "section": "\ud83c\udf10 Programs: Web Browsers"
+  },
+  {
+    "path": "myFeatures.programs.browsers.chrome.googleChrome.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Use Google Chrome (proprietary).",
+    "section": "\ud83c\udf10 Programs: Web Browsers"
+  },
+  {
+    "path": "myFeatures.programs.browsers.chrome.ungoogled.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Use Ungoogled Chromium (privacy-hardened).",
+    "section": "\ud83c\udf10 Programs: Web Browsers"
+  },
+  {
+    "path": "myFeatures.programs.browsers.firefox.default",
+    "type": "bool",
+    "default": "true",
+    "description": "Set Firefox as the default browser",
+    "section": "\ud83c\udf10 Programs: Web Browsers"
+  },
+  {
+    "path": "myFeatures.programs.browsers.firefox.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Enables Firefox browser.",
+    "section": "\ud83c\udf10 Programs: Web Browsers"
+  },
+  {
+    "path": "myFeatures.programs.browsers.firefox.extensions.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Declarative force-installed extensions.",
+    "section": "\ud83c\udf10 Programs: Web Browsers"
+  },
+  {
+    "path": "myFeatures.programs.browsers.firefox.nightly.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Use Firefox Nightly binary.",
+    "section": "\ud83c\udf10 Programs: Web Browsers"
+  },
+  {
+    "path": "myFeatures.programs.browsers.zen.default",
+    "type": "bool",
+    "default": "false",
+    "description": "Set Zen Browser as the default browser",
+    "section": "\ud83c\udf10 Programs: Web Browsers"
+  },
+  {
+    "path": "myFeatures.programs.browsers.zen.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Zen Browser with Phanes Overrides.",
+    "section": "\ud83c\udf10 Programs: Web Browsers"
+  },
+  {
+    "path": "myFeatures.programs.media.ani-cli.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable ani-cli CLI anime player.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.davinci.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Enable Davinci-resolve.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.gaming.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Gaming Suite (Steam + Prism Launcher).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.media.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Apollo's Media Suite.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.media.mpv.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to enable MPV with 1440p GPU acceleration.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.bedrockOnLinux.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable BedrockOnLinux (Minecraft Bedrock for Windows, alias).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.mcpelauncher.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable MCPELauncher (alias for minecraft.bedrock.android).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.minecraft.bedrock.android.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Minecraft: Bedrock Edition for Android (MCPELauncher via Flatpak).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.minecraft.bedrock.bedrockOnLinux.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable BedrockOnLinux (alias for minecraft.bedrock.windows.enable).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.minecraft.bedrock.edition",
+    "type": "enum",
+    "default": "\"windows\"",
+    "description": "Minecraft Bedrock Edition toggle: 'windows' (BedrockOnLinux) or 'android' (MCPELauncher via Flatpak).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.minecraft.bedrock.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Minecraft: Bedrock Edition.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.minecraft.bedrock.windows.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Minecraft: Bedrock Edition for Windows (BedrockOnLinux).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.minecraft.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Minecraft Suite.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.minecraft.java.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Minecraft: Java Edition (Prism Launcher with Java 8/17/21).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.mumble.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Mumble VoIP client.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.mumble.overlay.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Mumble in-game overlay support",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.obs.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable OBS Studio.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.prism.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Prism Launcher (alias for minecraft.java).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.roblox.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Roblox Suite (Sober via Flatpak).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.roblox.sober.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Sober (Roblox runtime via Flatpak).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.sober.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Sober (Roblox) via Flatpak (alias).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.steam.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Steam.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.steam.gamescope.args",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Arguments to pass to Gamescope",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.steam.gamescope.autoWrap",
+    "type": "bool",
+    "default": "true",
+    "description": "Automatically launch Steam inside Gamescope when running under Wayland/Niri",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.steam.gamescope.capSysNice",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable CAP_SYS_NICE capability on gamescope wrapper (can cause bubblewrap/steam issues)",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.steam.gamescope.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Gamescope session / wrapper.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.steam.gamescope.env",
+    "type": "attrsOf",
+    "default": "{}",
+    "description": "Environment variables for Gamescope",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.steam.protonInstaller.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable GUI Proton installer (protonup-qt or protonup-gtk/protonplus).",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.steam.protonInstaller.flavor",
+    "type": "enum",
+    "default": "\"auto\"",
+    "description": "Which flavor of GUI proton installer to use (Qt/protonup-qt or GTK/protonplus). 'auto' selects based on compositor.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.tf2.compHelper.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Install tf2-comp-setup CLI helper for autoexec generation, null-cancelling movement, and league configs",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.tf2.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Competitive Team Fortress 2 Suite & Toolchain.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.tf2.logsHelper.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Install tf2-logs and tf2-demos match viewer and lookup CLI tools",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.tf2.mumble.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Mumble voice client integration with positional audio and Wayland push-to-talk",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.tf2.rcon.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable RCON server administration tools (mcrcon and tf2-rcon CLI helper)",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.tf2.vpkTools.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable VPK package and custom HUD / hitsound editing tools (vpkedit)",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vlc.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable VLC Media Player.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vr.alvr.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable ALVR Air Light VR Streamer",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vr.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Unified VR (Virtual Reality) Suite.",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vr.monado.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Monado OpenXR Runtime Service",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vr.quest.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable support for Meta Quest headsets (Quest 1, 2, 3, Pro)",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vr.quest.wired",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Quest 1/2/3 wired ALVR/WiVRn streaming over USB (ADB reverse connection)",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vr.sidequest.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable SideQuest VR App Manager",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vr.streamer",
+    "type": "enum",
+    "default": "\"wivrn\"",
+    "description": "Primary VR streaming provider for Quest / wireless headsets (WiVRn or ALVR)",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vr.wired.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable support for Wired headsets (Valve Index, Vive, Rift, WMR)",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vr.wireless.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable support for Wireless/Standalone headsets (Quest, Pico, Vision Pro)",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.media.vr.wivrn.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable WiVRn OpenXR Streaming Server",
+    "section": "\ud83c\udfae Programs: Gaming & Media"
+  },
+  {
+    "path": "myFeatures.programs.utilities.bitwarden.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Bitwarden Client.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.filemanager.default",
+    "type": "bool",
+    "default": "true",
+    "description": "Set the enabled file manager as the default application for directory and file browsing across all apps.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.filemanager.dolphin.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable KDE Dolphin File Manager.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.filemanager.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable File Manager module.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.filemanager.nautilus.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable GNOME Nautilus File Manager.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.filemanager.nemo.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Cinnamon Nemo File Manager.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.filemanager.pcmanfm.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable PCManFM File Manager.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.filemanager.selection",
+    "type": "enum",
+    "default": "\"dolphin\"",
+    "description": "Select the active file manager to install and set as default.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.filemanager.thunar.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Thunar File Manager (XFCE).",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.filemanager.thunar.enablePlugins",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Thunar plugins (tumbler thumbnailer, archive plugin, volman, media-tags).",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.filemanager.yazi.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Yazi TUI File Manager (can be enabled alongside GUI file managers).",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.lego.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable lego.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.logseq.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Logseq.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.logseq.vaultPath",
+    "type": "str",
+    "default": "\"Documents/Logseq\"",
+    "description": "The relative path to your Logseq vault from home directory.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.social.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Social Suite (Communication & Music).",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.social.minimal",
+    "type": "bool",
+    "default": "true",
+    "description": "Use minimal / lightweight clients (Vesktop + Spotify Player) instead of full GUI clients (Spotify GUI + WebCord).",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.social.spotify.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Spotify GUI desktop client.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.social.spotify_player.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Spotify Player (TUI client).",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.social.vesktop.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Vesktop Discord client.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.social.webcord.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable WebCord Discord client.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.spicetify.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to enable Spicetify Integration.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.spotify-player.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Spotify TUI client (spotify-player).",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.spotify.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Spotify GUI client.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.spotify.gui.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Spotify GUI client.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.spotify.tui.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Spotify TUI client (spotify-player).",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.spotify_player.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Spotify TUI client (spotify-player).",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.stylePackages.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Enables style packages for terminal.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.vesktop.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Vesktop.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.utilities.webcord.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable WebCord.",
+    "section": "\ud83d\udcac Programs: Utilities & Social"
+  },
+  {
+    "path": "myFeatures.programs.office.ap-office.defaultPdf",
+    "type": "bool",
+    "default": "true",
+    "description": "Set Zotero as the default PDF reader when AP Office is enabled.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.ap-office.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable AP Office Academic Suite (Joplin, Zotero, Pandoc, Typst, LanguageTool).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.ap-office.joplin",
+    "type": "bool",
+    "default": "true",
+    "description": "Include Joplin core writing workspace & Markdown engine in AP Office Suite.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.ap-office.languagetool",
+    "type": "bool",
+    "default": "true",
+    "description": "Include LanguageTool desktop proofreading & style linter in AP Office Suite.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.ap-office.pandoc",
+    "type": "bool",
+    "default": "true",
+    "description": "Include Pandoc universal document converter in AP Office Suite.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.ap-office.typst",
+    "type": "bool",
+    "default": "true",
+    "description": "Include Typst modern typesetting engine & PDF compiler in AP Office Suite.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.ap-office.zotero",
+    "type": "bool",
+    "default": "true",
+    "description": "Include Zotero reference manager & PDF manager in AP Office Suite.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.calligra.components.karbon",
+    "type": "bool",
+    "default": "true",
+    "description": "Calligra Karbon vector graphics editor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.calligra.components.plan",
+    "type": "bool",
+    "default": "true",
+    "description": "Calligra Plan project management tool.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.calligra.components.sheets",
+    "type": "bool",
+    "default": "true",
+    "description": "Calligra Sheets spreadsheet application.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.calligra.components.stage",
+    "type": "bool",
+    "default": "true",
+    "description": "Calligra Stage presentation manager.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.calligra.components.words",
+    "type": "bool",
+    "default": "true",
+    "description": "Calligra Words text processing application.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.calligra.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable KDE Calligra Suite.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.calligra.enableKrita",
+    "type": "bool",
+    "default": "false",
+    "description": "Install Krita raster graphics painter alongside Calligra.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.joplin.cli",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to install the Joplin CLI client.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.joplin.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Joplin Desktop & CLI note-taking application.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.joplin.gui",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to install the Joplin Desktop client application.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.joplin.plugins.bibtex",
+    "type": "bool",
+    "default": "true",
+    "description": "Install BibTeX plugin for Joplin desktop.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.joplin.plugins.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Joplin desktop plugins (Jopdoc, BibTeX, Outline, Rich Markdown).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.joplin.plugins.jopdoc",
+    "type": "bool",
+    "default": "true",
+    "description": "Install Jopdoc export plugin for Joplin desktop.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.joplin.plugins.outline",
+    "type": "bool",
+    "default": "true",
+    "description": "Install Outline / Heading Navigator plugin for Joplin desktop.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.joplin.plugins.richMarkdown",
+    "type": "bool",
+    "default": "true",
+    "description": "Install Rich Markdown plugin for Joplin desktop.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.languagetool.apiUrl",
+    "type": "str",
+    "default": "\"http://localhost:8010\"",
+    "description": "Self-hosted LanguageTool API backend URL for local text analysis & linting.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.languagetool.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable LanguageTool Desktop proofreading & style linter application.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.components.base",
+    "type": "bool",
+    "default": "true",
+    "description": "LibreOffice Base database frontend.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.components.calc",
+    "type": "bool",
+    "default": "true",
+    "description": "LibreOffice Calc spreadsheet processor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.components.draw",
+    "type": "bool",
+    "default": "true",
+    "description": "LibreOffice Draw vector graphics editor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.components.impress",
+    "type": "bool",
+    "default": "true",
+    "description": "LibreOffice Impress presentation tool.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.components.math",
+    "type": "bool",
+    "default": "true",
+    "description": "LibreOffice Math formula editor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.components.writer",
+    "type": "bool",
+    "default": "true",
+    "description": "LibreOffice Writer word processor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable LibreOffice - The premiere open-source office productivity suite.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.enableJava",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Java JRE support (required for LibreOffice Base relational database engine).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.enableLanguageTool",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable LanguageTool grammar checker support.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.enableOfficeFonts",
+    "type": "bool",
+    "default": "true",
+    "description": "Install office-compatible fonts (Liberation, Carlito, Caladea, FreeFont).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.iconTheme",
+    "type": "enum",
+    "default": "\"colibre\"",
+    "description": "Icon theme for LibreOffice toolbars.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.spellcheck",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Hunspell spellcheckers and dictionaries (en_US, en_GB).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.libreoffice.variant",
+    "type": "enum",
+    "default": "\"fresh\"",
+    "description": "LibreOffice release branch: 'fresh' (latest features) or 'still' (stable enterprise).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.lightweight.abiword",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable AbiWord lightweight GTK word processor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.lightweight.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Lightweight modular office tools (AbiWord, Gnumeric, PDFArranger, Evince).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.lightweight.evince",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Evince document viewer for PDF and PostScript.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.lightweight.gnumeric",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Gnumeric high-speed spreadsheet engine.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.lightweight.pdfarranger",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable PDFArranger page merger & re-order utility.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.onlyoffice.defaultFormat",
+    "type": "enum",
+    "default": "\"ooxml\"",
+    "description": "Default document format target (.docx/.xlsx/.pptx vs .odt/.ods/.odp).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.onlyoffice.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable ONLYOFFICE Desktop Editors.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.onlyoffice.enablePlugins",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable ONLYOFFICE plugins store (Translator, OCR, HTML, YouTube).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.onlyoffice.enableSpellcheck",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable ONLYOFFICE spellchecking engine.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.onlyoffice.uiTheme",
+    "type": "enum",
+    "default": "\"dark\"",
+    "description": "ONLYOFFICE UI theme preset.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.pandoc.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Pandoc & TeX Live document publishing engine.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.pandoc.texlive",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to include TeX Live system package for PDF generation.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.softmaker.components.planmaker",
+    "type": "bool",
+    "default": "true",
+    "description": "PlanMaker spreadsheet editor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.softmaker.components.presentations",
+    "type": "bool",
+    "default": "true",
+    "description": "Presentations slide deck tool.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.softmaker.components.textmaker",
+    "type": "bool",
+    "default": "true",
+    "description": "TextMaker word processor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.softmaker.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable SoftMaker FreeOffice / Office Suite.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.softmaker.variant",
+    "type": "enum",
+    "default": "\"freeoffice\"",
+    "description": "SoftMaker package variant: 'freeoffice' (Free edition) or 'office' (Professional edition).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.trilium.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Trilium Notes desktop application.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.trilium.gui",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to install the Trilium Notes desktop client application.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.typst.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Typst modern typesetting engine & PDF compiler.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.wpsoffice.components.pdf",
+    "type": "bool",
+    "default": "true",
+    "description": "WPS PDF viewer and editor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.wpsoffice.components.presentation",
+    "type": "bool",
+    "default": "true",
+    "description": "WPS Presentation slide deck editor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.wpsoffice.components.spreadsheets",
+    "type": "bool",
+    "default": "true",
+    "description": "WPS Spreadsheets spreadsheet app.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.wpsoffice.components.writer",
+    "type": "bool",
+    "default": "true",
+    "description": "WPS Writer word processor.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.wpsoffice.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable WPS Office Suite.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.wpsoffice.enableSymbolFonts",
+    "type": "bool",
+    "default": "true",
+    "description": "Install missing WPS Office symbol fonts (Wingdings, Webdings, Symbol).",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.zotero.betterBibtex",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Better BibTeX plugin support for static citekey generation and auto-export.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.zotero.connector",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable browser Zotero Connector extension for one-click web source & DOI capture.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.zotero.defaultPdf",
+    "type": "bool",
+    "default": "false",
+    "description": "Set Zotero as the default application for opening PDF files.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.zotero.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Zotero desktop reference manager & PDF assistant.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.programs.office.zotero.gui",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to install the Zotero GUI client application.",
+    "section": "\ud83d\udcda Programs: Office & Publishing"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.awesome.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable AwesomeWM (Lua-programmable Dynamic X11 Tiling Window Manager).",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.awesome.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra Lua code appended to rc.lua",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.bspwm.borderWidth",
+    "type": "int",
+    "default": "2",
+    "description": "Window border width in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.bspwm.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Bspwm (Binary Space Partitioning X11 Tiling Window Manager).",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.bspwm.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra shell lines appended to bspwmrc",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.bspwm.windowGap",
+    "type": "int",
+    "default": "8",
+    "description": "Window gap in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.budgie.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Budgie Desktop Environment.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.cinnamon.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Cinnamon Desktop Environment.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.cosmic.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable COSMIC Desktop Environment.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.dwm.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable DWM (Suckless Dynamic X11 Tiling Window Manager).",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.gnome.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable GNOME Desktop Environment.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.animations",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable window and workspace animations",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.blur",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable background blur for transparent surfaces",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.borderSize",
+    "type": "int",
+    "default": "2",
+    "description": "Window border size in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Hyprland Dynamic Tiling Wayland Compositor.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra raw configuration lines appended to hyprland.conf",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.gapsIn",
+    "type": "int",
+    "default": "4",
+    "description": "Inner gaps between windows in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.gapsOut",
+    "type": "int",
+    "default": "8",
+    "description": "Outer gaps between windows and monitor edges in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.modKey",
+    "type": "enum",
+    "default": "\"SUPER\"",
+    "description": "Primary modifier key for Hyprland bindings",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.monitors",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Declarative list of display monitors for Hyprland",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.rounding",
+    "type": "int",
+    "default": "10",
+    "description": "Corner rounding radius in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.hyprland.shadow",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable window drop shadows",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.i3.borderWidth",
+    "type": "int",
+    "default": "2",
+    "description": "Window border width in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.i3.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable i3 X11 Tiling Window Manager.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.i3.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra raw configuration lines appended to i3 config",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.i3.gapsInner",
+    "type": "int",
+    "default": "4",
+    "description": "Inner window gaps in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.i3.gapsOuter",
+    "type": "int",
+    "default": "8",
+    "description": "Outer window gaps in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.i3.modKey",
+    "type": "enum",
+    "default": "\"Mod4\"",
+    "description": "Primary modifier key for i3 (Mod4 = Super, Mod1 = Alt)",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.kde.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable KDE Plasma 6 Desktop.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.kde.karousel.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Karousel scrollable-tiling KWin script.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.kde.wallpaper.stylix",
+    "type": "bool",
+    "default": "true",
+    "description": "Set KDE Plasma desktop wallpaper to match Stylix theme image",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.labwc.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Labwc (Openbox-inspired Stacking Wayland Compositor).",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.labwc.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra XML configuration lines for labwc rc.xml",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.lxqt.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable LXQt Lightweight Qt Desktop Environment.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.mangowc.borderWidth",
+    "type": "int",
+    "default": "2",
+    "description": "Window border width in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.mangowc.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable MangoWC / MangoWM (SceneFX-accelerated Wayland Compositor).",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.mangowc.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra configuration lines appended to ~/.config/mango/config.conf",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.mangowc.gaps",
+    "type": "int",
+    "default": "8",
+    "description": "Window gaps in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.mangowc.modKey",
+    "type": "enum",
+    "default": "\"SUPER\"",
+    "description": "Primary modifier key for MangoWC bindings",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.mate.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable MATE Desktop Environment.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.niri.defaultColumnWidth",
+    "type": "nullOr",
+    "default": "null",
+    "description": "Default column width proportion for Niri layout (e.g. 1.0 for 100%, 0.5 for 50%)",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.niri.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Niri Window Manager.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.niri.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra Niri configuration in KDL format",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.niri.gaps",
+    "type": "int",
+    "default": "8",
+    "description": "Gaps around windows in logical pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.niri.modKey",
+    "type": "enum",
+    "default": "\"left-alt\"",
+    "description": "Modifier key for Niri bindings",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.niri.monitors",
+    "type": "listOf",
+    "default": "[]",
+    "description": "List of monitors configured for Niri. Supports presets (e.g. '1080p', '1440p', '4k', 'ultrawide-1440p'), orientations ('horizontal', 'vertical'), VRR, refresh rates, positions, and scaling.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.niri.presetColumnWidths",
+    "type": "listOf",
+    "default": "[0.33333,0.5,0.66667,1.0]",
+    "description": "Preset column widths proportions for cycling with switch-preset-column-width",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.niri.setXwaylandPrimary",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to automatically set the designated primary monitor in Xwayland at startup.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.niri.settings",
+    "type": "attrsOf",
+    "default": "{}",
+    "description": "Niri settings",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.openbox.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Openbox (Classic Lightweight X11 Stacking Window Manager).",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.qtile.backend",
+    "type": "enum",
+    "default": "\"wayland\"",
+    "description": "Display backend for Qtile (wayland or x11)",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.qtile.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Qtile (Python-based Dynamic Tiling Window Manager).",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.qtile.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra Python code appended to config.py",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.river.borderWidth",
+    "type": "int",
+    "default": "2",
+    "description": "Border width in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.river.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable River Dynamic Tiling Wayland Compositor.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.river.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra shell commands executed in river init script",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.river.modKey",
+    "type": "enum",
+    "default": "\"Super\"",
+    "description": "Primary modifier key for River bindings",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.sway.borderWidth",
+    "type": "int",
+    "default": "2",
+    "description": "Window border width in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.sway.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Sway i3-compatible Wayland Tiling Window Manager.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.sway.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra raw configuration lines appended to sway config",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.sway.gapsInner",
+    "type": "int",
+    "default": "4",
+    "description": "Inner window gaps in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.sway.gapsOuter",
+    "type": "int",
+    "default": "8",
+    "description": "Outer window gaps in pixels",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.sway.modKey",
+    "type": "enum",
+    "default": "\"Mod4\"",
+    "description": "Primary modifier key for Sway (Mod4 = Super, Mod1 = Alt)",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.sway.monitors",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Declarative list of display monitors for Sway",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.wayfire.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Wayfire 3D Compiz-style Wayland Compositor.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.wayfire.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra configuration lines for wayfire.ini",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.wayfire.plugins",
+    "type": "listOf",
+    "default": "[\"/nix/store/db36q5v7pfibrvfqm9vc0s1k...",
+    "description": "List of Wayfire plugins to install",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.xfce.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable XFCE Desktop Environment.",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.xmonad.configGhc",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra Haskell configuration lines",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.xmonad.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable XMonad (Haskell-extensible Dynamic X11 Tiling Window Manager).",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.desktops.xmonad.enableContribAndExtras",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable xmonad-contrib and xmonad-extras libraries",
+    "section": "\ud83e\ude9f Platforms: Window Managers & Compositors"
+  },
+  {
+    "path": "myFeatures.platforms.addons.displayManager.extraConfig",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Extra compositor configuration lines for Wayland-based display managers (e.g. Sway for ReGreet).",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.displayManager.manager",
+    "type": "enum",
+    "default": "\"none\"",
+    "description": "Configure myFeatures.platforms.addons.displayManager.manager.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.displayManager.primaryOutput",
+    "type": "nullOr",
+    "default": "null",
+    "description": "Explicit primary monitor output for the display manager (e.g. 'DP-1'). If null, falls back to the desktop's primary monitor.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.displayManager.syncOutputs",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to synchronize monitor resolutions, positions, rotations, and primary focus from the desktop compositor configuration into the display manager.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.fuzzel.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Fuzzel according to stylix.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.idle.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Swayidle/lock service.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.ironbar.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Ironbar status bar.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.noctalia-shell.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Noctalia Shell (Wayland Shell).",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.noctalia-v5.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Noctalia Shell v5 (Wayland Shell).",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.swaybg.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable swaybg service.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.swaylock.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable swaylock screen locker.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.swaync.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Sway Notification Center.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.swayosd.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable SwayOSD.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.swww.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable swww wallpaper daemon.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.addons.waybar.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable waybar status bar.",
+    "section": "\ud83d\udcca Platforms: Desktop Addons & Panels"
+  },
+  {
+    "path": "myFeatures.platforms.styling.flavors.forest.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Apollo's Forest Flavor (Universal across compositors & shells).",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.flavors.gruvbox.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Apollo's Gruvbox Flavor (Universal across compositors & shells).",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.flavors.sky.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Apollo's Sky Flavor (Universal across compositors & shells).",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.flavors.space.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Apollo's Space Flavor (Universal across compositors & shells).",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.flavors.strawberry.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Apollo's Strawberry Flavor (Universal across compositors & shells).",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.gruvboxNoctalia.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Apollo's Gruvbox Noctalia Rice.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.niriKeybinds.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Apollo's Niri Keybinds.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.skyNoctalia.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Apollo's Sky Noctalia v5 Rice.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.stylix.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Stylix Framework.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.stylix.polarity",
+    "type": "enum",
+    "default": "\"dark\"",
+    "description": "Theme polarity (dark or light).",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.stylix.scheme",
+    "type": "nullOr",
+    "default": "null",
+    "description": "Path to the base16 scheme file or an attribute set. If null, Stylix generates colors from the wallpaper.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.stylix.wallpaper",
+    "type": "path",
+    "default": "*none*",
+    "description": "Path to the wallpaper image.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.themes.forest.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Forest Theme.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.themes.gruvbox.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Gruvbox Theme.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.themes.sky.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Sky Theme.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.themes.space.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Space Theme Stylix Settings.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.platforms.styling.themes.strawberry.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Strawberry Theme.",
+    "section": "\ud83c\udfa8 Platforms: Styling & Themes"
+  },
+  {
+    "path": "myFeatures.core.boot.boot.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Common Bootloader configuration.",
+    "section": "\ud83d\ude80 Core: Bootloader & Kernel"
+  },
+  {
+    "path": "myFeatures.core.boot.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Bootloader Selection Branch.",
+    "section": "\ud83d\ude80 Core: Bootloader & Kernel"
+  },
+  {
+    "path": "myFeatures.core.boot.kernel",
+    "type": "enum",
+    "default": "\"default\"",
+    "description": "The kernel package to use.",
+    "section": "\ud83d\ude80 Core: Bootloader & Kernel"
+  },
+  {
+    "path": "myFeatures.core.boot.loader",
+    "type": "enum",
+    "default": "\"limine\"",
+    "description": "The bootloader to use.",
+    "section": "\ud83d\ude80 Core: Bootloader & Kernel"
+  },
+  {
+    "path": "myFeatures.core.boot.plymouth.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to enable Plymouth graphical boot splash.",
+    "section": "\ud83d\ude80 Core: Bootloader & Kernel"
+  },
+  {
+    "path": "myFeatures.core.boot.resolution",
+    "type": "nullOr",
+    "default": "null",
+    "description": "Framebuffer / GOP display resolution for the bootloader (e.g. '2560x1440', '1920x1080'). If null, bootloader chooses default.",
+    "section": "\ud83d\ude80 Core: Bootloader & Kernel"
+  },
+  {
+    "path": "myFeatures.core.boot.secureBoot.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Native Bootloader Secure Boot.",
+    "section": "\ud83d\ude80 Core: Bootloader & Kernel"
+  },
+  {
+    "path": "myFeatures.core.boot.timeout",
+    "type": "int",
+    "default": "1",
+    "description": "Bootloader menu timeout in seconds.",
+    "section": "\ud83d\ude80 Core: Bootloader & Kernel"
+  },
+  {
+    "path": "myFeatures.core.security.agenix.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "agenix-rekey for secret management",
+    "section": "\ud83d\udd12 Core: Security & Secrets"
+  },
+  {
+    "path": "myFeatures.core.security.agenix.usePrivateSecrets",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to look for secrets inside the private solar-secrets repository input.",
+    "section": "\ud83d\udd12 Core: Security & Secrets"
+  },
+  {
+    "path": "myFeatures.core.security.security.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable General System Security Hardening.",
+    "section": "\ud83d\udd12 Core: Security & Secrets"
+  },
+  {
+    "path": "myFeatures.core.security.security.useAppArmor",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable AppArmor MAC support.",
+    "section": "\ud83d\udd12 Core: Security & Secrets"
+  },
+  {
+    "path": "myFeatures.core.security.security.useOOMD",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Systemd-OOMD stability.",
+    "section": "\ud83d\udd12 Core: Security & Secrets"
+  },
+  {
+    "path": "myFeatures.core.security.ssh.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable SSH Service.",
+    "section": "\ud83d\udd12 Core: Security & Secrets"
+  },
+  {
+    "path": "myFeatures.core.system.core-branch.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Core System Foundation.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.core-branch.usePersistence",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Wipe-on-Boot Preservation for this host.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.core-branch.virtualization.docker",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Docker Engine.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.core-branch.virtualization.libvirt",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Virt-Manager/VMs.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.disko.bulkDisks",
+    "type": "listOf",
+    "default": "[]",
+    "description": "List of slow disks (HDD) for the bulk storage pool.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.disko.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Universal Hardware-Aware Disko.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.disko.enableLuks",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable LUKS encryption on disko partitions.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.disko.speedDisks",
+    "type": "listOf",
+    "default": "[\"/dev/nvme0n1\"]",
+    "description": "List of fast disks (NVMe/SSD) for the primary speed pool.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.fonts.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Core System Fonts.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.localeChicago.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Chicago Locale/Timezone.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.preservation.coldPath",
+    "type": "str",
+    "default": "\"/persist\"",
+    "description": "The path for cold storage/archives (HDD). Falls back to persistentPath if no HDDs.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.preservation.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Wipe-on-Boot Preservation.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.preservation.persistentPath",
+    "type": "str",
+    "default": "\"/persist\"",
+    "description": "The root path for persistent storage (Speed/NVMe).",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.users.agenixPassword",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable agenix-managed passwords for users.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.users.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable User Management.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.users.mainHome",
+    "type": "path",
+    "default": "\"/home/daphne\"",
+    "description": "The home directory of the primary user.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.users.mainUser",
+    "type": "str",
+    "default": "\"daphne\"",
+    "description": "The primary user of the system.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.users.usernames",
+    "type": "listOf",
+    "default": "[\"apollo\"]",
+    "description": "List of users to configure.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.virtualization.docker",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Docker Engine.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.virtualization.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Virtualization Suite.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.system.virtualization.libvirt",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Libvirt/Virt-Manager.",
+    "section": "\ud83d\udcbe Core: System, Disko & Users"
+  },
+  {
+    "path": "myFeatures.core.shell.cli.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Core CLI Utilities.",
+    "section": "\ud83d\udc1a Core: Shell & CLI"
+  },
+  {
+    "path": "myFeatures.core.shell.shell-branch.aliases",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Custom System Aliases.",
+    "section": "\ud83d\udc1a Core: Shell & CLI"
+  },
+  {
+    "path": "myFeatures.core.shell.shell-branch.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Interactive Shell Environment.",
+    "section": "\ud83d\udc1a Core: Shell & CLI"
+  },
+  {
+    "path": "myFeatures.core.shell.shell-branch.p10k",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Powerlevel10k Theme.",
+    "section": "\ud83d\udc1a Core: Shell & CLI"
+  },
+  {
+    "path": "myFeatures.core.shell.shell.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Apollo's Zsh & Starship Setup.",
+    "section": "\ud83d\udc1a Core: Shell & CLI"
+  },
+  {
+    "path": "myFeatures.core.nix.automation.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable automated GitHub-based flake updates.",
+    "section": "\u2744\ufe0f Core: Nix Engine & Channels"
+  },
+  {
+    "path": "myFeatures.core.nix.automation.syncHelper",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable local helper script to sync GitHub updates.",
+    "section": "\u2744\ufe0f Core: Nix Engine & Channels"
+  },
+  {
+    "path": "myFeatures.core.nix.cachix.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Cachix binary caches.",
+    "section": "\u2744\ufe0f Core: Nix Engine & Channels"
+  },
+  {
+    "path": "myFeatures.core.nix.channels.currentVersion",
+    "type": "str",
+    "default": "\"26.11\"",
+    "description": "Configure myFeatures.core.nix.channels.currentVersion.",
+    "section": "\u2744\ufe0f Core: Nix Engine & Channels"
+  },
+  {
+    "path": "myFeatures.core.nix.channels.isStable",
+    "type": "bool",
+    "default": "false",
+    "description": "Internal: Whether the host is using the stable branch.",
+    "section": "\u2744\ufe0f Core: Nix Engine & Channels"
+  },
+  {
+    "path": "myFeatures.core.nix.channels.stableVersion",
+    "type": "str",
+    "default": "\"26.05\"",
+    "description": "Configure myFeatures.core.nix.channels.stableVersion.",
+    "section": "\u2744\ufe0f Core: Nix Engine & Channels"
+  },
+  {
+    "path": "myFeatures.core.nix.channels.unstableVersion",
+    "type": "str",
+    "default": "\"26.11\"",
+    "description": "Configure myFeatures.core.nix.channels.unstableVersion.",
+    "section": "\u2744\ufe0f Core: Nix Engine & Channels"
+  },
+  {
+    "path": "myFeatures.core.nix.lix.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enables Lix in systems",
+    "section": "\u2744\ufe0f Core: Nix Engine & Channels"
+  },
+  {
+    "path": "myFeatures.core.nix.nix-settings.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Core Nix flake and optimization settings.",
+    "section": "\u2744\ufe0f Core: Nix Engine & Channels"
+  },
+  {
+    "path": "myFeatures.hardware.cpu-gpu.amd.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable AMD CPU Support (P-State/Microcode)",
+    "section": "\u26a1 Hardware: CPU & GPU Drivers"
+  },
+  {
+    "path": "myFeatures.hardware.cpu-gpu.amd.gpu",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable AMD GPU Support (amdgpu drivers)",
+    "section": "\u26a1 Hardware: CPU & GPU Drivers"
+  },
+  {
+    "path": "myFeatures.hardware.cpu-gpu.intel.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Intel Graphics Support.",
+    "section": "\u26a1 Hardware: CPU & GPU Drivers"
+  },
+  {
+    "path": "myFeatures.hardware.cpu-gpu.nvidia.beta",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Use Nvidia Beta Driver Channel.",
+    "section": "\u26a1 Hardware: CPU & GPU Drivers"
+  },
+  {
+    "path": "myFeatures.hardware.cpu-gpu.nvidia.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Nvidia Proprietary Drivers.",
+    "section": "\u26a1 Hardware: CPU & GPU Drivers"
+  },
+  {
+    "path": "myFeatures.hardware.cpu-gpu.nvidia.legacy",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Use Legacy Driver Branch (for P2000/Pascal).",
+    "section": "\u26a1 Hardware: CPU & GPU Drivers"
+  },
+  {
+    "path": "myFeatures.hardware.cpu-gpu.nvidia.open",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Use Open Source Kernel Modules (Modern).",
+    "section": "\u26a1 Hardware: CPU & GPU Drivers"
+  },
+  {
+    "path": "myFeatures.hardware.cpu-gpu.nvidia.prime.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Nvidia PRIME Offload Mode (Laptop).",
+    "section": "\u26a1 Hardware: CPU & GPU Drivers"
+  },
+  {
+    "path": "myFeatures.hardware.cpu-gpu.nvidia.prime.intelBusId",
+    "type": "str",
+    "default": "\"PCI:0:2:0\"",
+    "description": "Configure myFeatures.hardware.cpu-gpu.nvidia.prime.intelBusId.",
+    "section": "\u26a1 Hardware: CPU & GPU Drivers"
+  },
+  {
+    "path": "myFeatures.hardware.cpu-gpu.nvidia.prime.nvidiaBusId",
+    "type": "str",
+    "default": "\"PCI:1:0:0\"",
+    "description": "Configure myFeatures.hardware.cpu-gpu.nvidia.prime.nvidiaBusId.",
+    "section": "\u26a1 Hardware: CPU & GPU Drivers"
+  },
+  {
+    "path": "myFeatures.hardware.input.controllers.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Game Controller Support.",
+    "section": "\ud83c\udfae Hardware: Input & Controllers"
+  },
+  {
+    "path": "myFeatures.hardware.input.controllers.nintendo",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Nintendo Switch (Joy-Con/Pro Controller) support.",
+    "section": "\ud83c\udfae Hardware: Input & Controllers"
+  },
+  {
+    "path": "myFeatures.hardware.input.controllers.playstation",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable PlayStation (DualShock/DualSense) support.",
+    "section": "\ud83c\udfae Hardware: Input & Controllers"
+  },
+  {
+    "path": "myFeatures.hardware.input.controllers.xbox",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable Xbox (One/Series/360) controller drivers.",
+    "section": "\ud83c\udfae Hardware: Input & Controllers"
+  },
+  {
+    "path": "myFeatures.hardware.input.fingerprint.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Fingerprint Sensor Support.",
+    "section": "\ud83c\udfae Hardware: Input & Controllers"
+  },
+  {
+    "path": "myFeatures.hardware.input.trackpad.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Trackpad Settings.",
+    "section": "\ud83c\udfae Hardware: Input & Controllers"
+  },
+  {
+    "path": "myFeatures.hardware.input.wooting.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Wooting Keyboard Support.",
+    "section": "\ud83c\udfae Hardware: Input & Controllers"
+  },
+  {
+    "path": "myFeatures.hardware.peripherals.battery.aggressive",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable experimental kernel tweaks for maximum savings.",
+    "section": "\ud83d\udd0b Hardware: Peripherals & Mobile"
+  },
+  {
+    "path": "myFeatures.hardware.peripherals.battery.bluetooth.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Manage Bluetooth power states based on AC/Battery.",
+    "section": "\ud83d\udd0b Hardware: Peripherals & Mobile"
+  },
+  {
+    "path": "myFeatures.hardware.peripherals.battery.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable ThinkPad Power Management.",
+    "section": "\ud83d\udd0b Hardware: Peripherals & Mobile"
+  },
+  {
+    "path": "myFeatures.hardware.peripherals.battery.fullCharge",
+    "type": "bool",
+    "default": "false",
+    "description": "If false, caps charge at 80% to preserve battery health.",
+    "section": "\ud83d\udd0b Hardware: Peripherals & Mobile"
+  },
+  {
+    "path": "myFeatures.hardware.peripherals.bluetooth.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Enables bluetooth services.",
+    "section": "\ud83d\udd0b Hardware: Peripherals & Mobile"
+  },
+  {
+    "path": "myFeatures.hardware.peripherals.bluetooth.gaming.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Force low-latency Bluetooth connection parameters for gaming.",
+    "section": "\ud83d\udd0b Hardware: Peripherals & Mobile"
+  },
+  {
+    "path": "myFeatures.hardware.peripherals.wifi.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Enables Wifi Services.",
+    "section": "\ud83d\udd0b Hardware: Peripherals & Mobile"
+  },
+  {
+    "path": "myFeatures.hardware.peripherals.wifi.persistence",
+    "type": "bool",
+    "default": "true",
+    "description": "Whether to persist WiFi network connections across reboots.",
+    "section": "\ud83d\udd0b Hardware: Peripherals & Mobile"
+  },
+  {
+    "path": "myFeatures.hardware.system.dualboot.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Enables Windows Dualboot on Mars.",
+    "section": "\ud83d\udda5\ufe0f Hardware: System Peripherals"
+  },
+  {
+    "path": "myFeatures.hardware.system.graphics.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Universal Graphics Acceleration.",
+    "section": "\ud83d\udda5\ufe0f Hardware: System Peripherals"
+  },
+  {
+    "path": "myFeatures.hardware.system.ttyResolution.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable TTY Resolution configuration.",
+    "section": "\ud83d\udda5\ufe0f Hardware: System Peripherals"
+  },
+  {
+    "path": "myFeatures.hardware.system.ttyResolution.resolution",
+    "type": "str",
+    "default": "\"2560x1440\"",
+    "description": "The resolution to set for the TTY (e.g., 2560x1440)",
+    "section": "\ud83d\udda5\ufe0f Hardware: System Peripherals"
+  },
+  {
+    "path": "myFeatures.services.hardware.firmware.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Enable Firmware Updates.",
+    "section": "\ud83d\udda8\ufe0f Services: Hardware & Storage"
+  },
+  {
+    "path": "myFeatures.services.hardware.openrgb.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable OpenRGB.",
+    "section": "\ud83d\udda8\ufe0f Services: Hardware & Storage"
+  },
+  {
+    "path": "myFeatures.services.hardware.printing.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable CUPS Printing Support.",
+    "section": "\ud83d\udda8\ufe0f Services: Hardware & Storage"
+  },
+  {
+    "path": "myFeatures.services.hardware.udisks2.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Udisks2 and GVFS for automounting.",
+    "section": "\ud83d\udda8\ufe0f Services: Hardware & Storage"
+  },
+  {
+    "path": "myFeatures.services.multimedia.audio.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Pipewire Audio & CLI Utilities.",
+    "section": "\ud83d\udd0a Services: Multimedia & Audio"
+  },
+  {
+    "path": "myFeatures.services.multimedia.moonlight.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Moonlight: High-performance game streaming client.",
+    "section": "\ud83d\udd0a Services: Multimedia & Audio"
+  },
+  {
+    "path": "myFeatures.services.multimedia.sunshine.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Sunshine: Open-source GameStream host.",
+    "section": "\ud83d\udd0a Services: Multimedia & Audio"
+  },
+  {
+    "path": "myFeatures.services.multimedia.sunshine.port",
+    "type": "unsignedInt16",
+    "default": "47990",
+    "description": "The port for the Sunshine Web UI",
+    "section": "\ud83d\udd0a Services: Multimedia & Audio"
+  },
+  {
+    "path": "myFeatures.services.networking.cloudflare.credentialsFile",
+    "type": "str",
+    "default": "\"/var/lib/cloudflare/tunnel-creds.json\"",
+    "description": "Local path to the tunnel JSON credentials",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.networking.cloudflare.domains",
+    "type": "attrsOf",
+    "default": "{}",
+    "description": "Configure myFeatures.services.networking.cloudflare.domains.",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.networking.cloudflare.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Cloudflare Tunnel.",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.networking.cloudflare.tunnelId",
+    "type": "str",
+    "default": "*none*",
+    "description": "The UUID of your Cloudflare tunnel",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.networking.ddns.domains",
+    "type": "listOf",
+    "default": "[]",
+    "description": "List of apollan.cc subdomains to update",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.networking.ddns.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Cloudflare DDNS.",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.networking.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Core Networking Suite.",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.networking.resolved.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable systemd-resolved network name resolution manager.",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.networking.syncthing.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Syncthing.",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.networking.tailscale.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Tailscale VPN.",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.networking.wifi.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Declarative WiFi via NetworkManager.",
+    "section": "\ud83c\udf10 Services: Networking & DNS"
+  },
+  {
+    "path": "myFeatures.services.system.flatpak.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Flatpak Support.",
+    "section": "\ud83d\udce6 Services: System Daemons"
+  },
+  {
+    "path": "myFeatures.services.system.flatpak.mcpelauncher.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable MCPELauncher (Minecraft Bedrock Edition) via Flatpak.",
+    "section": "\ud83d\udce6 Services: System Daemons"
+  },
+  {
+    "path": "myFeatures.services.system.flatpak.overrides",
+    "type": "attrs",
+    "default": "{}",
+    "description": "Flatpak overrides to configure via nix-flatpak.",
+    "section": "\ud83d\udce6 Services: System Daemons"
+  },
+  {
+    "path": "myFeatures.services.system.flatpak.packages",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Declarative Flatpak packages to install via nix-flatpak.",
+    "section": "\ud83d\udce6 Services: System Daemons"
+  },
+  {
+    "path": "myFeatures.services.system.flatpak.remotes",
+    "type": "listOf",
+    "default": "[]",
+    "description": "Additional Flatpak remotes to configure via nix-flatpak.",
+    "section": "\ud83d\udce6 Services: System Daemons"
+  },
+  {
+    "path": "myFeatures.services.system.flatpak.sober.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Sober (Roblox) via Flatpak.",
+    "section": "\ud83d\udce6 Services: System Daemons"
+  },
+  {
+    "path": "myFeatures.services.system.flatpak.update.auto.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Enable periodic automatic Flatpak updates via systemd timer.",
+    "section": "\ud83d\udce6 Services: System Daemons"
+  },
+  {
+    "path": "myFeatures.services.system.flatpak.update.auto.onCalendar",
+    "type": "string",
+    "default": "\"weekly\"",
+    "description": "Frequency of periodic Flatpak updates.",
+    "section": "\ud83d\udce6 Services: System Daemons"
+  },
+  {
+    "path": "myFeatures.services.system.flatpak.update.onActivation",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to upgrade Flatpak applications during system activation.",
+    "section": "\ud83d\udce6 Services: System Daemons"
+  },
+  {
+    "path": "myFeatures.services.system.xdgPortals.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable XDG Portals for Wayland/Desktop.",
+    "section": "\ud83d\udce6 Services: System Daemons"
+  },
+  {
+    "path": "myFeatures.services.nginx.domain",
+    "type": "nullOr",
+    "default": "null",
+    "description": "Default domain for Nginx (optional).",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.nginx.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Nginx Reverse Proxy.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.factorio.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Factorio Headless Server.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.factorio.port",
+    "type": "unsignedInt16",
+    "default": "34197",
+    "description": "UDP port for the Factorio server",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.joplin.baseUrl",
+    "type": "str",
+    "default": "\"https://joplin.apollan.cc\"",
+    "description": "Public base URL of Joplin Server.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.joplin.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Joplin Synchronization Server (Solar Managed).",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.joplin.port",
+    "type": "unsignedInt16",
+    "default": "22300",
+    "description": "Listening port for Joplin Server.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.languagetool.allowOrigin",
+    "type": "str",
+    "default": "\"*\"",
+    "description": "Allowed origin header value for CORS access.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.languagetool.baseUrl",
+    "type": "str",
+    "default": "\"https://languagetool.apollan.cc\"",
+    "description": "Public base URL of self-hosted LanguageTool server.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.languagetool.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable LanguageTool Self-Hosted Proofreading API Server.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.languagetool.port",
+    "type": "unsignedInt16",
+    "default": "8010",
+    "description": "Listening port for LanguageTool HTTP API server.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.admin.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Minecraft Admin User and Directory Configuration.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.create-aero.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Create Aeronautics Minecraft 1.21.1 Neoforge Modpack.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.create-aero.mapPort",
+    "type": "unsignedInt16",
+    "default": "8100",
+    "description": "The port for the BlueMap web interface.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.create-aero.port",
+    "type": "unsignedInt16",
+    "default": "25565",
+    "description": "Configure myFeatures.services.servers.minecraft.create-aero.port.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.no-mans-land.autoBackup",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable automated BorgBackup snapshots for the server world data.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.no-mans-land.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable PhasMC No Man's Land Minecraft 1.21.1 NeoForge Modpack Server.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.no-mans-land.jvmOpts",
+    "type": "str",
+    "default": "\"-Xmx12G -Xms12G -XX:+UseZGC -XX:+ZGenerational -XX:+UnlockExperimentalVMOptions -Dneoforge.forceignoreConfigMismatch=true -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:+PerfDisableSharedMem\"",
+    "description": "JVM execution flags and memory allocation.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.no-mans-land.motd",
+    "type": "str",
+    "default": "\"PhasMC No Man's Land 1.21.1\"",
+    "description": "Message of the day displayed in the server list.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.no-mans-land.port",
+    "type": "unsignedInt16",
+    "default": "25565",
+    "description": "The port for the Minecraft server.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.no-mans-land.voicePort",
+    "type": "unsignedInt16",
+    "default": "24454",
+    "description": "The UDP port for Simple Voice Chat communication.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.sllv.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Minecraft MCA Fabric Server (1.21.1).",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.minecraft.sllv.port",
+    "type": "unsignedInt16",
+    "default": "25565",
+    "description": "Configure myFeatures.services.servers.minecraft.sllv.port.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.terraria.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Terraria Dedicated Server (Solar Managed).",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.terraria.maxPlayers",
+    "type": "int",
+    "default": "8",
+    "description": "Configure myFeatures.services.servers.terraria.maxPlayers.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.terraria.openFirewall",
+    "type": "bool",
+    "default": "true",
+    "description": "Configure myFeatures.services.servers.terraria.openFirewall.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.terraria.password",
+    "type": "str",
+    "default": "\"\"",
+    "description": "Configure myFeatures.services.servers.terraria.password.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.terraria.port",
+    "type": "unsignedInt16",
+    "default": "7777",
+    "description": "Configure myFeatures.services.servers.terraria.port.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.terraria.worldSize",
+    "type": "enum",
+    "default": "\"large\"",
+    "description": "Configure myFeatures.services.servers.terraria.worldSize.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.trilium.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Trilium Server (Solar Managed).",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.trilium.port",
+    "type": "unsignedInt16",
+    "default": "8080",
+    "description": "Port for the Trilium server",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.zotero.baseUrl",
+    "type": "str",
+    "default": "\"https://zotero.apollan.cc\"",
+    "description": "Public base URL of Zotero WebDAV host.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.zotero.configFile",
+    "type": "nullOr",
+    "default": "null",
+    "description": "Path to custom WebDAV config YAML file on server disk. Overrides declarative settings if set, allowing runtime user/password management outside Nix.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.zotero.dataDir",
+    "type": "str",
+    "default": "\"/var/lib/zotero-webdav\"",
+    "description": "Storage path for Zotero WebDAV attachment files.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.zotero.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Zotero WebDAV Attachment Server (Solar Managed).",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.zotero.nginx.enable",
+    "type": "bool",
+    "default": "true",
+    "description": "Enable Nginx virtualHost proxy for Zotero WebDAV host.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.zotero.password",
+    "type": "str",
+    "default": "\"zotero\"",
+    "description": "WebDAV authentication password or bcrypt hash for Zotero client attachment sync.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.zotero.passwordHash",
+    "type": "nullOr",
+    "default": "null",
+    "description": "Optional pre-hashed bcrypt string for WebDAV authentication ($2a$...).",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.zotero.port",
+    "type": "unsignedInt16",
+    "default": "8081",
+    "description": "Listening port for Zotero WebDAV server.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.services.servers.zotero.username",
+    "type": "str",
+    "default": "\"zotero\"",
+    "description": "WebDAV authentication username for Zotero client attachment sync.",
+    "section": "\ud83d\udda7 Services: Server Stack & Self-Hosted"
+  },
+  {
+    "path": "myFeatures.darwin.system.core.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Core macOS System Settings.",
+    "section": "\ud83c\udf4e Darwin (macOS) Specifics"
+  },
+  {
+    "path": "myFeatures.darwin.system.homebrew.enable",
+    "type": "bool",
+    "default": "false",
+    "description": "Whether to enable Enable Homebrew.",
+    "section": "\ud83c\udf4e Darwin (macOS) Specifics"
+  }
+]
