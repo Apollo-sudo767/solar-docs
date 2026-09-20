@@ -17,6 +17,16 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'Fleet & Clusters', link: '/fleet/' },
+      {
+        text: 'Pluto Cluster',
+        items: [
+          { text: 'Cluster Architecture', link: '/fleet/pluto-cluster' },
+          { text: 'Workload Migration Runbook', link: '/fleet/pluto-cluster/migration' },
+          { text: 'Venus ➔ Pluto Transfer Guide', link: '/fleet/pluto-cluster/transfer' },
+          { text: 'Secrets & Security Guide', link: '/fleet/pluto-cluster/secrets' },
+          { text: 'Setup & Operations Guide', link: '/fleet/pluto-cluster/setup' }
+        ]
+      },
       { text: 'Architecture', link: '/guide/architecture' },
       { text: 'Storage & Security', link: '/guide/storage-security' },
       { text: 'Cheatsheet', link: '/reference/cheatsheet' },
@@ -37,10 +47,19 @@ export default defineConfig({
           ]
         },
         {
+          text: 'Pluto HA Cluster',
+          items: [
+            { text: 'Cluster Architecture', link: '/fleet/pluto-cluster' },
+            { text: 'Workload Migration Runbook', link: '/fleet/pluto-cluster/migration' },
+            { text: 'Venus ➔ Pluto Transfer Guide', link: '/fleet/pluto-cluster/transfer' },
+            { text: 'Secrets & Security Guide', link: '/fleet/pluto-cluster/secrets' },
+            { text: 'Setup & Operations Guide', link: '/fleet/pluto-cluster/setup' },
+          ]
+        },
+        {
           text: 'Fleet & Operations',
           items: [
             { text: 'Fleet Catalog', link: '/fleet/' },
-            { text: 'Pluto HA Cluster', link: '/fleet/pluto-cluster' },
             { text: 'Universal Cheatsheet', link: '/reference/cheatsheet' },
           ]
         }

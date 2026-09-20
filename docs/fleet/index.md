@@ -33,14 +33,18 @@ ______________________________________________________________________
 The **Pluto Cluster** is a 3-node High-Availability Kubernetes control plane powered by an embedded etcd quorum.
 
 - **Nodes**: **`pluto`** (Bootstrap Master), **`styx`** (Master 2), and **`hydra`** (Master 3).
-- **Stateless Compute**: Local hostpath storage is disabled (`--disable=local-storage`). Persistent volumes are dynamically provisioned over NFS from **`sol`** (`nfs-client`).
+- **Multi-Tier Storage**: Longhorn replicated block storage on M920qs, Pluto NVMe NFS, and local NVMe paths.
 - **Staggered Reboots**: System updates and automatic reboots occur Sundays 30 minutes apart to preserve etcd quorum:
   - `pluto`: Sun 03:00
   - `styx`: Sun 03:30
   - `hydra`: Sun 04:00
 
-::: tip Dedicated Guide
-For complete deployment manifests, bootstrap commands, and storage integration, see the dedicated [Pluto Cluster Guide](./pluto-cluster.md).
+::: tip 📖 Pluto Cluster Guides & Runbooks
+- **[Cluster Architecture](/fleet/pluto-cluster)**: Hardware specifications, node roles, network ingress, and topology.
+- **[Workload Migration Runbook](/fleet/pluto-cluster/migration)**: Detailed transition runbook for Joplin, Zotero, Factorio, and Minecraft.
+- **[Venus ➔ Pluto Transfer Guide](/fleet/pluto-cluster/transfer)**: Step-by-step physical hardware migration and Hydra staging manual.
+- **[Secrets & Security Guide](/fleet/pluto-cluster/secrets)**: Zero-plaintext Age secrets, YubiKey encryption, and Kubernetes secret injection.
+- **[Setup & Operations Guide](/fleet/pluto-cluster/setup)**: Full cluster deployment, bootstrapping, and day-2 administration manual.
 :::
 
 ______________________________________________________________________
