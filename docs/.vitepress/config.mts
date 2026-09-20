@@ -20,7 +20,8 @@ export default defineConfig({
       { text: 'Architecture', link: '/guide/architecture' },
       { text: 'Storage & Security', link: '/guide/storage-security' },
       { text: 'Cheatsheet', link: '/reference/cheatsheet' },
-      { text: 'Toggles', link: '/reference/toggles' }
+      { text: 'Toggles', link: '/reference/toggles' },
+      { text: '🔍 Nix Search', link: '/reference/search' }
     ],
 
     sidebar: {
@@ -49,7 +50,16 @@ export default defineConfig({
           text: 'The Fleet',
           items: [
             { text: 'Fleet Overview & Matrix', link: '/fleet/' },
-            { text: 'The Pluto HA Cluster', link: '/fleet/pluto-cluster' },
+          ]
+        },
+        {
+          text: 'Pluto HA Cluster',
+          items: [
+            { text: 'Cluster Architecture', link: '/fleet/pluto-cluster' },
+            { text: 'Setup & Operations Guide', link: '/fleet/pluto-cluster/setup' },
+            { text: 'Secrets & Security Guide', link: '/fleet/pluto-cluster/secrets' },
+            { text: 'Workload Migration Runbook', link: '/fleet/pluto-cluster/migration' },
+            { text: 'Venus ➔ Pluto Transfer Guide', link: '/fleet/pluto-cluster/transfer' },
           ]
         },
         {
@@ -65,6 +75,7 @@ export default defineConfig({
         {
           text: 'Reference & Operations',
           items: [
+            { text: '🔍 Nix & Flake Search', link: '/reference/search' },
             { text: 'Universal Cheatsheet', link: '/reference/cheatsheet' },
             { text: 'Universal Keybindings', link: '/reference/keybindings' },
             { text: 'Troubleshooting & Diagnostics', link: '/reference/troubleshooting' },

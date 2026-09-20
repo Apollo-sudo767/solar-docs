@@ -2,6 +2,13 @@
 
 The **Pluto Cluster** is a 3-node, High-Availability Kubernetes (K3s) GitOps cluster orchestrating game servers, media pipelines, home automation, and network ingress. The underlying nodes are provisioned declaratively via [Solar](https://github.com/Apollo-sudo767/solar), while workloads and infrastructure components are synchronized continuously via [Flux CD](https://fluxcd.io/) in the [`pluto-cluster`](https://github.com/Apollo-sudo767/pluto-cluster) repository.
 
+::: tip 📖 Operational Guides & Runbooks
+- **[Setup & Operations Guide](/fleet/pluto-cluster/setup)**: Complete bootstrapping, hardware specs, node lifecycle, and day-2 operations.
+- **[Secrets & Security Guide](/fleet/pluto-cluster/secrets)**: Zero-plaintext GitOps, Agenix rekeying, and Kubernetes secret injection.
+- **[Workload Migration Runbook](/fleet/pluto-cluster/migration)**: Database dumps, WebDAV rsync, Factorio saves, and symlink dereferencing.
+- **[Venus ➔ Pluto Transfer Guide](/fleet/pluto-cluster/transfer)**: Step-by-step operational guide for transitioning from bare-metal Venus to Hydra to Pluto.
+:::
+
 ______________________________________________________________________
 
 ## 🏛️ Cluster Architecture
@@ -69,15 +76,22 @@ All compute nodes (`pluto`, `styx`, `hydra`) implement Solar's signature **ephem
 
 ______________________________________________________________________
 
-## 💾 Dynamic Storage Foundation
+## 💾 Hybrid Multi-Tier Storage Architecture
 
-Persistent volume management is completely decoupled from individual compute nodes:
+Persistent volume management uses three distinct tiers optimized for workload I/O profiles:
 
-- **Dynamic Provisioner**: [`nfs-subdir-external-provisioner`](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner) deployed under `infrastructure/nfs-provisioner`.
-- **Default StorageClass**: `nfs-client` with `reclaimPolicy: Retain` or `Delete` based on workload importance.
-- **Two-Phase Storage Roadmap**:
-  1. **Phase 1 (Bootstrap / Standalone)**: `pluto` exports `/persist/k3s-volumes` via local NFS for zero-dependency operation before the central NAS is provisioned.
-  1. **Phase 2 (Fleet Production)**: Volumes migrate smoothly to `sol.local:/tank/k3s-volumes` on the central ZFS array, providing hardware redundancy, automated snapshots, and offsite replication.
+1. **Replicated Block Storage (`longhorn`)**:
+   - **Workloads**: Joplin PostgreSQL database and Zotero WebDAV.
+   - **Resilience**: Synchronous 2-way block replication across the two M920q Tiny nodes (`hydra` and `styx`), surviving single-node reboots and power outages with zero data loss.
+2. **Centralized High-Capacity NFS (`nfs-client`)**:
+   - **Workloads**: Factorio, Team Fortress 2, Home Assistant, and Jellyfin media.
+   - **Dynamic Provisioner**: [`nfs-subdir-external-provisioner`](https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner) deployed under `infrastructure/nfs-provisioner`.
+   - **Phased Deployment**: Staged on `hydra` (Phase 1), cut over to `pluto`'s fast NVMe (Phase 2), and migrating to `sol.local:/tank/k3s-volumes` on the central ZFS array (Phase 3).
+3. **Direct Node-Local NVMe (`local-path`)**:
+   - **Workloads**: Minecraft dedicated server.
+   - **Performance**: Writes directly to `/persist/kubernetes/local-storage` on Pluto's NVMe drive (~3,500 MB/s), eliminating chunk-saving tick lag.
+
+See the full **[Workload Migration & Storage Runbook](/fleet/pluto-cluster/migration)** for configuration and cutover procedures.
 
 ______________________________________________________________________
 
