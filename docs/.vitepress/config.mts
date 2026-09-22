@@ -16,9 +16,8 @@ export default defineConfig({
 
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
-      { text: 'Fleet & Clusters', link: '/fleet/' },
       {
-        text: 'Pluto Cluster',
+        text: '🪐 Pluto Cluster',
         items: [
           { text: 'Cluster Architecture', link: '/fleet/pluto-cluster' },
           { text: 'Workload Migration Runbook', link: '/fleet/pluto-cluster/migration' },
@@ -27,11 +26,20 @@ export default defineConfig({
           { text: 'Setup & Operations Guide', link: '/fleet/pluto-cluster/setup' }
         ]
       },
+      { text: 'Fleet & Clusters', link: '/fleet/' },
       { text: 'Architecture', link: '/guide/architecture' },
       { text: 'Storage & Security', link: '/guide/storage-security' },
-      { text: 'Cheatsheet', link: '/reference/cheatsheet' },
-      { text: 'Toggles', link: '/reference/toggles' },
-      { text: '🔍 Nix Search', link: '/reference/search' }
+      {
+        text: 'Reference',
+        items: [
+          { text: 'Universal Cheatsheet', link: '/reference/cheatsheet' },
+          { text: 'Universal Keybindings', link: '/reference/keybindings' },
+          { text: 'Troubleshooting & Diagnostics', link: '/reference/troubleshooting' },
+          { text: 'Definitive Toggle Reference', link: '/reference/toggles' },
+          { text: '🔍 Nix & Flake Options Search', link: '/reference/search' },
+          { text: 'Frequently Asked Questions', link: '/reference/faq' }
+        ]
+      }
     ],
 
     sidebar: {

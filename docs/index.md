@@ -9,6 +9,9 @@ hero:
     - theme: brand
       text: Getting Started
       link: /guide/getting-started
+    - theme: brand
+      text: 🪐 Pluto Cluster Runbooks
+      link: /fleet/pluto-cluster
     - theme: alt
       text: The Fleet & Clusters
       link: /fleet/
@@ -17,10 +20,13 @@ hero:
       link: /reference/cheatsheet
 
 features:
+  - icon: 🪐
+    title: Pluto K3s HA Cluster
+    details: 3-node embedded etcd control plane, Longhorn replicated block storage on M920qs, node-local NVMe, and full Venus migration runbooks.
   - icon: 🌲
     title: Dendritic Autodiscovery
     details: Zero-boilerplate leaf loading. Modules auto-scan filesystem paths into typed options under myFeatures without manual import registries.
-  - icon: 🪐
+  - icon: 🌌
     title: 15-Host Constellation
     details: Complete fleet orchestration from Niri Wayland workstations (Mars, Mercury) to the 3-node HA Pluto K3s Cluster, Sol ZFS NAS, and Venus cloud.
   - icon: 💾
