@@ -337,6 +337,10 @@ flux reconcile kustomization apps --with-source
 
 # Tail logs of game server
 kubectl logs -n games -l app=minecraft -c minecraft-server -f
+
+# Run automated cluster health check
+# (Checks nodes, PVCs, Joplin DB, Minecraft RCON, Factorio UDP, and Playit tunnel)
+bash /tmp/check-cluster.sh
 ```
 
 ______________________________________________________________________
