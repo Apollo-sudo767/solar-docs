@@ -234,19 +234,31 @@ sudo kubectl get nodes
 ```
 
 ### Step 3: Transition Venus ➔ Node 3 (`pluto`) & Cut Over Storage
-When ready to migrate Venus:
-1. Follow the [Venus ➔ Hydra ➔ Pluto Complete Transfer Guide](./transfer) for exact workload staging.
-2. Rebuild `venus` as `pluto`:
+When ready to install Pluto on the Beelink hardware:
+1. Follow the **[Venus ➔ MacBook ➔ ThinkCentre (Hydra) ➔ Pluto Complete Migration Runbook](./transfer)** for step-by-step data stashing and pod validation.
+2. **Stage Pluto SSH Host Key on MacBook**:
    ```bash
-   sudo nixos-rebuild switch --flake "github:Apollo-sudo767/solar#pluto"
+   # From Mars:
+   scp -r ~/.ssh/hosts/pluto apollo@macbook-pro:~/.ssh/hosts/
+   # (Or from MacBook):
+   mkdir -p ~/.ssh/hosts/pluto && scp -r apollo@mars:~/.ssh/hosts/pluto/ ~/.ssh/hosts/pluto/
    ```
-3. Once Pluto boots and joins `https://hydra:6443`, full 3-node HA quorum is established:
+3. **Boot Pluto with Solar Live Installer USB & Push Key**:
+   ```bash
+   # From MacBook to Pluto Live Installer:
+   scp ~/.ssh/hosts/pluto/ssh_host_ed25519_key* root@<pluto-installer-ip>:/mnt/persist/etc/ssh/
+   # Or stage in /home/nixos/ before partitioning:
+   scp ~/.ssh/hosts/pluto/ssh_host_ed25519_key* nixos@<pluto-installer-ip>:/home/nixos/
+   ```
+4. **Install Pluto Closure**:
+   Run `sudo solar-install` on the installer console, select `pluto`, confirm Disko LUKS formatting, and reboot.
+5. Once Pluto boots and joins `https://hydra:6443`, full 3-node HA quorum is established:
    ```bash
    sudo kubectl get nodes
    ```
-4. **Cut over shared NFS storage to Pluto**:
+6. **Cut over shared NFS storage to Pluto**:
    ```bash
-   sudo rsync -avz /persist/kubernetes/storage/ root@pluto:/persist/kubernetes/storage/
+   sudo rsync -avzP /persist/kubernetes/storage/ root@pluto:/persist/kubernetes/storage/
    ```
    In `infrastructure/nfs-provisioner/deployment.yaml`, update `NFS_SERVER: "pluto"`, then commit and push.
 
