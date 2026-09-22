@@ -70,7 +70,7 @@ When orchestrating Longhorn on an ephemeral NixOS cluster, use a **clean divisio
 | Layer | Tool | Configuration & Rationale |
 | :--- | :--- | :--- |
 | **Host & Kernel Layer** | **NixOS** (`solar`) | **Prerequisites only**: Enables the Linux kernel `iscsi_tcp` module, Open-iSCSI daemon (`services.openiscsi.enable = true`), filesystem utilities (`nfs-utils`, `e2fsprogs`, `xfsprogs`), and mounts the persistent volume directory (`/persist/kubernetes/longhorn`). *Already configured on `hydra`, `styx`, and `pluto` in `solar`!* |
-| **Kubernetes CSI & Controller Layer** | **Helm via Flux** (`pluto-cluster`) | **Operator & CRDs**: Deploys the Longhorn manager DaemonSet, CSI driver, Webhook, replica policies (`defaultReplicaCount: 2`), and StorageClass via [`infrastructure/longhorn/helm-release.yaml`](file:///Users/apollo/src/pluto-cluster/infrastructure/longhorn/helm-release.yaml). |
+| **Kubernetes CSI & Controller Layer** | **Helm via Flux** (`pluto-cluster`) | **Operator & CRDs**: Deploys the Longhorn manager DaemonSet, CSI driver, Webhook, replica policies (`defaultReplicaCount: 2`), and StorageClass via [`infrastructure/longhorn/helm-release.yaml`](https://github.com/Apollo-sudo767/pluto-cluster/blob/main/infrastructure/longhorn/helm-release.yaml). |
 
 **Why Helm is the superior choice for the Kubernetes components**:
 1. **GitOps Lifecycle**: Upgrading Longhorn versions, altering default replica counts, or modifying storage classes is managed through Git commits in `pluto-cluster` without having to rebuild the NixOS host closure.
@@ -95,7 +95,7 @@ When orchestrating Longhorn on an ephemeral NixOS cluster, use a **clean divisio
 
 ### Step 4.1: Provision Secrets
 Joplin requires a shared database password between PostgreSQL and the Joplin Server app:
-1. Encrypt `joplin-secret.age` into `solar-secrets` following the [Secrets Guide](./secrets).
+1. Encrypt `joplin-secret.age` into `solar-secrets` following the [Secrets Guide](/fleet/pluto-cluster/secrets).
 2. Or provision imperatively:
    ```bash
    kubectl create secret generic joplin-secret \

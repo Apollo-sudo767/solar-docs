@@ -82,9 +82,16 @@ All compute nodes run **stateless root filesystems** using tmpfs rollback on boo
 
 ---
 
-## 3. Storage Evolution: Progressive NFS & Sol NAS Migration
+## 3. Storage Evolution: Hybrid Multi-Tier & Progressive NFS
 
-To accommodate physical deployment order and prevent drive exhaustion on smaller disks, storage progresses across three phases:
+The Pluto cluster implements a **Hybrid Multi-Tier Storage Architecture** providing three concurrent storage classes tailored to workload I/O:
+- **`longhorn`**: Replicated block storage across M920qs (`hydra` & `styx`) for transactional databases (Joplin PostgreSQL, Zotero WebDAV).
+- **`local-path`**: High-throughput node-local NVMe on `pluto` (`/persist/kubernetes/local-storage`) for latency-sensitive game servers (Minecraft).
+- **`nfs-client`**: Centralized dynamic NFS storage for persistent game worlds (Factorio, TF2) and home automation.
+
+*(For full architecture diagrams and database dump procedures, see the [Workload Migration Runbook](/fleet/pluto-cluster/migration)).*
+
+To accommodate physical deployment order and prevent drive exhaustion on smaller disks, the shared NFS tier progresses across three phases:
 
 ### 3.1 Phase 1 (Local Testing): Temporary NFS on `hydra`
 When Hydra is initialized locally before other nodes exist:
@@ -234,9 +241,8 @@ Verify the 2-node cluster from Hydra:
 sudo kubectl get nodes
 ```
 
-### Step 3: Transition Venus ➔ Node 3 (`pluto`) & Cut Over Storage
 When ready to install Pluto on the Beelink hardware:
-1. Follow the **[Venus ➔ MacBook ➔ ThinkCentre (Hydra) ➔ Pluto Complete Migration Runbook](./transfer)** for step-by-step data stashing and pod validation.
+1. Follow the **[Venus ➔ MacBook ➔ ThinkCentre (Hydra) ➔ Pluto Complete Migration Runbook](/fleet/pluto-cluster/transfer)** for step-by-step data stashing and pod validation.
 2. **Stage Pluto SSH Host Key on MacBook**:
    ```bash
    # From Mars:
@@ -302,6 +308,13 @@ flux get sources git
 ```bash
 kubectl get storageclass
 ```
+Expected output showing the multi-tier provisioners:
+```text
+NAME                   PROVISIONER                                     RECLAIMPOLICY   VOLUMEBINDINGMODE
+nfs-client (default)   cluster.local/nfs-subdir-external-provisioner   Delete          Immediate
+longhorn               driver.longhorn.io                              Delete          Immediate
+local-path             rancher.io/local-path                           Delete          WaitForFirstConsumer
+```
 
 ---
 
@@ -347,10 +360,11 @@ Web services (Joplin, Zotero, Home Assistant, Jellyfin) are exposed securely ove
 
 | Workload | Namespace | Node Target | Memory / CPU | Storage PVC | Features |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Paper / Modpack Minecraft** | `games` | `pluto` (`node.type=compute`) | 8-12Gi RAM / 4 vCPU | 20-50Gi (`nfs-client`) | Aikar JVM flags, Playit sidecar |
-| **Joplin Server + Postgres** | `productivity` | Any | 1.5Gi RAM / 1 vCPU | 10Gi (`nfs-client`) | Cloudflare Tunnel ingress |
-| **Zotero WebDAV** | `productivity` | Any | 200Mi RAM / 0.5 vCPU | 20Gi (`nfs-client`) | Nginx sidecar, MKCOL probe intercept |
+| **Paper / Modpack Minecraft** | `games` | `pluto` (`node.type=compute`) | 8-12Gi RAM / 4 vCPU | 20Gi (`local-path`) | Aikar JVM flags, Playit sidecar |
+| **Joplin Server + Postgres** | `productivity` | Any | 1.5Gi RAM / 1 vCPU | 10Gi (`longhorn`) | Replicated block storage across M920qs, Cloudflare Ingress |
+| **Zotero WebDAV** | `productivity` | Any | 200Mi RAM / 0.5 vCPU | 20Gi (`longhorn`) | Replicated block storage across M920qs, Nginx MKCOL proxy |
 | **Factorio** | `games` | `pluto` (`node.type=compute`) | 2-4Gi RAM / 2 vCPU | 10Gi (`nfs-client`) | Headless server, UDP port 34197 |
+| **Team Fortress 2** | `games` | Any | 2-4Gi RAM / 2 vCPU | 25Gi (`nfs-client`) | Dedicated server, UDP port 27015 |
 | **Home Assistant** | `home-automation` | Any | 1Gi RAM / 1 vCPU | 10Gi (`nfs-client`) | Host networking, automated device discovery |
 | **Jellyfin** | `media` | `hydra` (`gpu.vendor=intel`) | 4Gi RAM / 2 vCPU | 20Gi Config + Sol Media NFS | Intel QuickSync hardware transcoding (`/dev/dri`) |
 | **qBittorrent + VPN** | `media` | Any | 4Gi RAM / 2 vCPU | 10Gi Config + Sol Media NFS | Gluetun Surfshark WireGuard VPN sidecar |

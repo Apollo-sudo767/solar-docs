@@ -158,6 +158,25 @@ Headless servers disable display managers, enable remote WireGuard mesh networki
 
 ______________________________________________________________________
 
+## 🪐 High-Availability Cluster Node Blueprint
+
+Pluto cluster nodes (`pluto`, `styx`, `hydra`) run stateless root filesystems on `tmpfs`, embedded etcd quorum, and native Kubernetes storage modules:
+
+- **Bootstrap Node (`hydra`)**: Configured with `clusterInit = true` and initial NFS server export.
+- **Worker/Master Nodes (`styx`, `pluto`)**: Join `https://hydra:6443` using the synchronized `k3s-token.age`.
+- **Hybrid Multi-Tier Storage**: Storage classes for Longhorn replicated block devices, Pluto node-local NVMe, and dynamic NFS.
+
+::: tip 📖 Pluto Cluster Guides
+For complete cluster deployment, bare-metal provisioning with `solar-install`, secrets setup, and workload migration runbooks, see:
+- **[Pluto Cluster Architecture](/fleet/pluto-cluster)**
+- **[Setup & Operations Guide](/fleet/pluto-cluster/setup)**
+- **[Workload Migration Runbook](/fleet/pluto-cluster/migration)**
+- **[Venus ➔ Pluto Transfer Guide](/fleet/pluto-cluster/transfer)**
+- **[Secrets & Security Guide](/fleet/pluto-cluster/secrets)**
+:::
+
+______________________________________________________________________
+
 ## 🔄 Routine System Maintenance
 
 | Command | Action | Description |
