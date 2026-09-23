@@ -364,7 +364,7 @@ Web services (Joplin, Zotero, Home Assistant, Jellyfin) are exposed securely ove
 | **Joplin Server + Postgres** | `productivity` | Any | 1.5Gi RAM / 1 vCPU | 10Gi (`longhorn`) | Replicated block storage across M920qs, Cloudflare Ingress |
 | **Zotero WebDAV** | `productivity` | Any | 200Mi RAM / 0.5 vCPU | 20Gi (`longhorn`) | Replicated block storage across M920qs, Nginx MKCOL proxy |
 | **Factorio** | `games` | `pluto` (`node.type=compute`) | 2-4Gi RAM / 2 vCPU | 10Gi (`nfs-client`) | Headless server, UDP port 34197 |
-| **Team Fortress 2** | `games` | Any | 2-4Gi RAM / 2 vCPU | 25Gi (`nfs-client`) | Dedicated server, UDP port 27015 |
+| **Team Fortress 2** | `games` | `pluto` (`node.type=compute`) | 2-4Gi RAM / 2 vCPU | 25Gi (`nfs-client`) | Public Casual Pub (GSLT, auto-fill bots) + On-demand 6s tournament mode (`rcon comp`), St. Louis MO |
 | **Home Assistant** | `home-automation` | Any | 1Gi RAM / 1 vCPU | 10Gi (`nfs-client`) | Host networking, automated device discovery |
 | **Jellyfin** | `media` | `hydra` (`gpu.vendor=intel`) | 4Gi RAM / 2 vCPU | 20Gi Config + Sol Media NFS | Intel QuickSync hardware transcoding (`/dev/dri`) |
 | **qBittorrent + VPN** | `media` | Any | 4Gi RAM / 2 vCPU | 10Gi Config + Sol Media NFS | Gluetun Surfshark WireGuard VPN sidecar |

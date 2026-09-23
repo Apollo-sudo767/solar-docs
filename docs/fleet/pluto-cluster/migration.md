@@ -191,6 +191,45 @@ kubectl scale deployment -n games factorio-server --replicas=1
 kubectl logs -n games -l app=factorio -f
 ```
 
+### Step 6.2: Team Fortress 2 Dedicated Server (Public Pub + On-Demand Comp 6s)
+
+The TF2 dedicated server operates in **dual mode** hosted out of St. Louis, MO (`sv_region 0`):
+1. **Public Casual Pub (Default)**: Listed on Valve's global server browser using a free Steam GSLT token, running popular Payload/5CP/KOTH maps with auto-fill bot quota (`tf_bot_quota 12`) so the server is never empty.
+2. **On-Demand Comp 6s**: When 12+ players join, players can vote or an admin can trigger official tournament 6s mode (`rcon comp` or `rcon exec comp_6s.cfg`).
+
+#### 1. Obtain & Encrypt Steam GSLT Token (Optional but Recommended for Public Listing)
+1. Register a token at [steamcommunity.com/dev/managegameservers](https://steamcommunity.com/dev/managegameservers) with App ID **`440`** (Team Fortress 2).
+2. Create `secrets/tf2-secret.age` in `solar-secrets`:
+   ```bash
+   cat << 'EOF' > /tmp/tf2.env
+   SRCDS_TOKEN=YOUR_STEAM_GSLT_TOKEN_HERE
+   SRCDS_RCONPW=YOUR_SECURE_RCON_PASSWORD_HERE
+   EOF
+
+   nix shell nixpkgs#age nixpkgs#age-plugin-yubikey -c age \
+     -R ~/src/solar-secrets/master/apollo_user.pub \
+     -R ~/src/solar-secrets/master/yubikey.pub \
+     -o ~/src/solar-secrets/secrets/tf2-secret.age \
+     /tmp/tf2.env
+
+   rm -f /tmp/tf2.env
+   ```
+
+#### 2. Apply Manifests & Verify Port Binding
+```bash
+# Apply TF2 manifests
+kubectl apply -k apps/tf2
+
+# Verify pod and configmap
+kubectl get pods -n games -l app=tf2 -w
+kubectl logs -n games -l app=tf2 -c init-config
+kubectl logs -n games -l app=tf2 -c tf2 -f
+```
+
+#### 3. In-Game Mode Toggling
+* **Switch to 6s Match**: In console run `rcon comp` (or `rcon exec comp_6s`). Bots disappear, `mp_tournament 1` activates, class limits lock (2 Scout, 2 Soldier, 1 Demo, 1 Medic), and SourceTV records.
+* **Return to Casual Pub**: In console run `rcon casual` (or `rcon exec casual`). Tournament ends, bot fill resumes, and casual mapcycle returns.
+
 ---
 
 ## 7. Nix-Minecraft Modpack Server Transition (Node-Local NVMe)
