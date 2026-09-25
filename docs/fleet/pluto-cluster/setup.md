@@ -9,7 +9,7 @@ This guide covers the complete deployment lifecycle—from the underlying NixOS 
 ## 📑 Table of Contents
 1. [Architecture Overview](#1-architecture-overview)
 2. [Prerequisites & Hardware Nodes](#2-prerequisites--hardware-nodes)
-3. [Storage Evolution: Progressive NFS & Sol NAS Migration](#3-storage-evolution-progressive-nfs--sol-nas-migration)
+3. [Storage Evolution: Hybrid Multi-Tier & Progressive NFS](#3-storage-evolution-hybrid-multi-tier--progressive-nfs)
 4. [Secret Management Architecture (Nix & Agenix)](#4-secret-management-architecture-nix--agenix)
 5. [Cluster Bootstrapping & Quorum Initialization](#5-cluster-bootstrapping--quorum-initialization)
 6. [GitOps Deployment with Flux CD](#6-gitops-deployment-with-flux-cd)
@@ -17,7 +17,15 @@ This guide covers the complete deployment lifecycle—from the underlying NixOS 
    - [Playit.gg Integration for Minecraft](#playitgg-sidecar-integration)
    - [Custom Domain & DNS SRV Records](#custom-domain--dns-srv-records)
    - [Cloudflare Ingress for Web Services](#cloudflare-ingress-for-web-services)
-8. [Workloads Reference](#8-workloads-reference)
+8. [Workload Setup & Operational Runbooks](#8-workload-setup--operational-runbooks)
+   - [8.1 Workload Architecture & Allocation Matrix](#81-workload-architecture--allocation-matrix)
+   - [8.2 Paper / Modpack Minecraft Server (`apps/minecraft`)](#82-paper--modpack-minecraft-server-appsminecraft)
+   - [8.3 Factorio Dedicated Server (`apps/factorio`)](#83-factorio-dedicated-server-appsfactorio)
+   - [8.4 Team Fortress 2 Dedicated Server (`apps/tf2`)](#84-team-fortress-2-dedicated-server-appstf2)
+   - [8.5 Joplin Server & PostgreSQL (`apps/joplin`)](#85-joplin-server--postgresql-appsjoplin)
+   - [8.6 Zotero WebDAV & Nginx Proxy (`apps/zotero`)](#86-zotero-webdav--nginx-proxy-appszotero)
+   - [8.7 Home Assistant Core (`apps/home-assistant`)](#87-home-assistant-core-appshome-assistant)
+   - [8.8 Media Suite: Jellyfin & Servarr (`apps/jellyfin`, `apps/arr`)](#88-media-suite-jellyfin--servarr-appsjellyfin-appsarr)
 9. [Day-2 Operations & Maintenance](#9-day-2-operations--maintenance)
 10. [Troubleshooting Runbook](#10-troubleshooting-runbook)
 11. [Automated Cluster Health Check Script](#11-automated-cluster-health-check-script)
@@ -356,18 +364,466 @@ Web services (Joplin, Zotero, Home Assistant, Jellyfin) are exposed securely ove
 
 ---
 
-## 8. Workloads Reference
+## 8. Workload Setup & Operational Runbooks {#8-workload-setup--operational-runbooks}
 
-| Workload | Namespace | Node Target | Memory / CPU | Storage PVC | Features |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Paper / Modpack Minecraft** | `games` | `pluto` (`node.type=compute`) | 8-12Gi RAM / 4 vCPU | 20Gi (`local-path`) | Aikar JVM flags, Playit sidecar |
-| **Joplin Server + Postgres** | `productivity` | Any | 1.5Gi RAM / 1 vCPU | 10Gi (`longhorn`) | Replicated block storage across M920qs, Cloudflare Ingress |
-| **Zotero WebDAV** | `productivity` | Any | 200Mi RAM / 0.5 vCPU | 20Gi (`longhorn`) | Replicated block storage across M920qs, Nginx MKCOL proxy |
-| **Factorio** | `games` | `pluto` (`node.type=compute`) | 2-4Gi RAM / 2 vCPU | 10Gi (`nfs-client`) | Headless server, UDP port 34197 |
-| **Team Fortress 2** | `games` | `pluto` (`node.type=compute`) | 2-4Gi RAM / 2 vCPU | 25Gi (`nfs-client`) | Public Casual Pub (GSLT, auto-fill bots) + On-demand 6s tournament mode (`rcon comp`), St. Louis MO |
-| **Home Assistant** | `home-automation` | Any | 1Gi RAM / 1 vCPU | 10Gi (`nfs-client`) | Host networking, automated device discovery |
-| **Jellyfin** | `media` | `hydra` (`gpu.vendor=intel`) | 4Gi RAM / 2 vCPU | 20Gi Config + Sol Media NFS | Intel QuickSync hardware transcoding (`/dev/dri`) |
-| **qBittorrent + VPN** | `media` | Any | 4Gi RAM / 2 vCPU | 10Gi Config + Sol Media NFS | Gluetun Surfshark WireGuard VPN sidecar |
+This section provides dedicated, end-to-end setup and operational runbooks for every server and service running in the Pluto cluster. Each workload has distinct storage persistence classes, compute pin requirements, ingress routes, and secret configurations.
+
+---
+
+### 8.1 Workload Architecture & Allocation Matrix {#81-workload-architecture--allocation-matrix}
+
+The Pluto cluster implements a multi-tier hardware allocation policy designed to match workload characteristics with physical hardware capabilities:
+
+| Workload | Namespace | Node Target / Affinity | CPU & Memory | Storage Class & Size | External Ingress / Connectivity | Required Secrets |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Paper / Modpack Minecraft** | `games` | `pluto` (`node.type=compute`) | 4 vCPU / 8-12Gi RAM | `local-path` (20Gi NVMe) | Playit.gg Sidecar + Cloudflare SRV (`mc.apollan.cc`) | `playit-secret` |
+| **Factorio Dedicated** | `games` | `pluto` (`node.type=compute`) | 2 vCPU / 2-4Gi RAM | `nfs-client` (10Gi NFS) | Router Port-Forward (UDP 34197) | None |
+| **Team Fortress 2** | `games` | `pluto` (`node.type=compute`) | 2 vCPU / 2-4Gi RAM | `nfs-client` (25Gi NFS) | Router Port-Forward (UDP 27015/27020, TCP 27015) | `tf2-secret` (GSLT, RCON) |
+| **Joplin Server + DB** | `productivity` | Any (`hydra` / `styx`) | 1 vCPU / 1.5Gi RAM | `longhorn` (10Gi Replicated) | Cloudflare Tunnel (`joplin.apollan.cc:22300`) | `joplin-secret` (PostgreSQL) |
+| **Zotero WebDAV + Proxy** | `productivity` | Any (`hydra` / `styx`) | 0.5 vCPU / 250Mi RAM | `longhorn` (20Gi Replicated) | Cloudflare Tunnel (`zotero.apollan.cc:80`) | WebDAV bcrypt in ConfigMap |
+| **Home Assistant Core** | `home-automation` | Any | 2 vCPU / 1-2Gi RAM | `nfs-client` (20Gi NFS) | Cloudflare Tunnel (`homeassistant.apollan.cc:8123`) | None |
+| **Jellyfin Streaming** | `media` | `hydra` (`gpu.vendor=intel`) | 4 vCPU / 4-8Gi RAM | `nfs-client` (20Gi cfg + Sol Media) | Cloudflare Tunnel / LAN direct (Port 8096) | None |
+| **qBittorrent + VPN** | `media` | Any | 2 vCPU / 2-4Gi RAM | `nfs-client` (10Gi cfg + Sol Media) | Gluetun Surfshark WireGuard / ClusterIP 8080 | `surfshark-vpn-secret` |
+
+#### Hardware Resource Partitioning Rationale
+
+1. **Beelink EQR5 (`pluto`)**: Compute heavyweight with AMD Ryzen 7 5700U (8 cores / 16 threads, 4.3 GHz boost) and 32GB RAM. Pinned for single-threaded tick-heavy game servers (`minecraft`, `factorio`, `tf2`). Node-local NVMe storage (`local-path`) is reserved for Minecraft to eliminate disk I/O wait times.
+2. **ThinkCentre M920q (`hydra`)**: Intel Core i5-8500T with Intel UHD Graphics 630. Pinned for hardware transcoding in `jellyfin` via `/dev/dri` QuickSync passthrough.
+3. **ThinkPad T14 Gen 2 (`styx`)**: Battery-backed mobile chassis acting as an uninterruptible quorum voter and control plane anchor.
+4. **ThinkCentre M920q Pair (`hydra` + `styx`)**: Host 2-way replicated block storage (`longhorn`) for mission-critical relational databases (PostgreSQL for Joplin) and academic documents (Zotero WebDAV), preventing database corruption from network file system locks.
+5. **Central ZFS NAS (`sol`)**: High-capacity dynamic storage via `nfs-client-provisioner` for read-heavy bulk files, media libraries, game saves, and non-blocking application configs.
+
+---
+
+### 8.2 Paper / Modpack Minecraft Server (`apps/minecraft`) {#82-paper--modpack-minecraft-server-appsminecraft}
+
+The Minecraft server runs containerized Paper 1.21.1 (or Forge/NeoForge/Fabric modpacks) alongside an embedded `playit-agent` sidecar that enables instant, zero-port-forwarding public connections.
+
+#### 1. Directory Structure & Key Manifests
+- `apps/minecraft/namespace.yaml`: Defines `games` namespace.
+- `apps/minecraft/pvc.yaml`: Requests 20Gi using `storageClassName: local-path` bound to Pluto's NVMe drive (`/persist/kubernetes/local-storage`).
+- `apps/minecraft/deployment.yaml`: Runs `itzg/minecraft-server` and `playitgg/playit-agent`.
+- `apps/minecraft/service.yaml`: Internal ClusterIP routing port 25565.
+
+#### 2. Local-Path NVMe Storage Architecture
+Minecraft world generation and chunk loading are notoriously sensitive to disk latency. Placing world chunks on an NFS mount causes severe server tick stalls ("Server can't keep up! Is the server overloaded?"). 
+
+To guarantee 20 TPS (Ticks Per Second):
+* The PVC uses `storageClassName: local-path` with `volumeBindingMode: WaitForFirstConsumer`.
+* The Deployment defines a `nodeAffinity` targeting `node.type=compute` (`pluto`).
+* The data directory mounts directly onto Pluto's fast NVMe drive at `/persist/kubernetes/local-storage`.
+
+#### 3. Required Secrets Setup
+The Playit sidecar requires a valid tunnel secret key:
+```bash
+# Option A: Direct Kubernetes Secret (Immediate deployment)
+kubectl create secret generic playit-secret \
+  --namespace=games \
+  --from-literal=PLAYIT_SECRET_KEY="YOUR_PLAYIT_SECRET_KEY_HERE"
+
+# Option B: Agenix (Solar GitOps managed)
+# Add to ~/src/solar-secrets/secrets/playit-secret.age and sync via cluster daemon.
+```
+
+#### 4. Performance Tuning & Aikar JVM Flags
+The deployment embeds proven Aikar Garbage Collection flags into the container environment:
+```yaml
+env:
+  - name: EULA
+    value: "TRUE"
+  - name: VERSION
+    value: "1.21.1"
+  - name: TYPE
+    value: "PAPER"
+  - name: MEMORY
+    value: "8G"
+  - name: JVM_XX_OPTS
+    value: "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch"
+```
+
+#### 5. Public DNS & Friend Access Setup
+1. In the [Playit.gg Dashboard](https://playit.gg):
+   - Navigate to **Tunnels** ➔ **Add Tunnel** ➔ Type: **Minecraft (Java)** ➔ Port `25565`.
+   - Go to **Custom Domains** ➔ Add `mc.apollan.cc`.
+   - Note the generated tunnel host (e.g. `galaxy-1234.craft.playit.gg`) and external port (e.g. `34215`).
+2. In **Cloudflare DNS**:
+   - **CNAME Record**: `mc` ➔ `galaxy-1234.craft.playit.gg` (DNS Only / Grey Cloud).
+   - **SRV Record**: `_minecraft._tcp.mc` ➔ Priority `0`, Weight `5`, Port `<assigned-port>`, Target `mc.apollan.cc`.
+3. Players connect directly using: `mc.apollan.cc` without specifying any port.
+
+#### 6. Voice Chat & Modpack Support
+* **Simple Voice Chat (Plasmo / SimpleVoiceChat)**: Simple Voice Chat requires a separate UDP port (default `24454`). Create an additional UDP tunnel in Playit and bind it to container port 24454.
+* **Modpack Switching**: To convert to a modpack, change `TYPE` to `FABRIC` or `NEOFORGE` and populate `/data/mods` and `/data/config`.
+
+#### 7. Day-2 Operations & Commands
+```bash
+# Check server logs in real time
+kubectl logs -n games -l app=minecraft -c minecraft-server -f
+
+# Check Playit tunnel connectivity
+kubectl logs -n games -l app=minecraft -c playit-agent
+
+# Execute RCON console commands (e.g., OP player, whitelist)
+kubectl exec -it -n games deploy/minecraft -c minecraft-server -- rcon-cli op apollo
+kubectl exec -it -n games deploy/minecraft -c minecraft-server -- rcon-cli whitelist add friend1
+```
+
+---
+
+### 8.3 Factorio Dedicated Server (`apps/factorio`) {#83-factorio-dedicated-server-appsfactorio}
+
+The Factorio dedicated server runs headless `factoriotools/factorio:stable` backed by central Sol ZFS storage.
+
+#### 1. Directory Structure & Key Manifests
+- `apps/factorio/pvc.yaml`: Requests 10Gi using `storageClassName: nfs-client`.
+- `apps/factorio/deployment.yaml`: Headless server deployment with automatic mod updating.
+- `apps/factorio/service.yaml`: `NodePort` service exposing UDP `34197`.
+
+#### 2. Network Routing & Port Forwarding
+Factorio communicates entirely over UDP port 34197:
+1. In `apps/factorio/service.yaml`, the service defines `type: NodePort` with `nodePort: 34197`.
+2. On your router:
+   - Create a UDP Port Forwarding rule: **WAN UDP 34197** ➔ **Pluto LAN IP (192.168.1.xxx) : 34197**.
+3. Players connect via: `<your-public-ip-or-ddns>:34197`.
+
+#### 3. Environment Variables & Mod Management
+```yaml
+env:
+  - name: UPDATE_MODS_ON_START
+    value: "true"
+  - name: SAVE_NAME
+    value: "pluto_world"
+  - name: GENERATE_NEW_SAVE
+    value: "true"
+```
+* **Automatic World Generation**: If no existing save exists with `pluto_world.zip` in `/factorio/saves/`, the server automatically creates a fresh procedural map on startup.
+* **Mod Updating**: If mods are installed in `/factorio/mods/`, setting `UPDATE_MODS_ON_START: "true"` contacts the Factorio Mod Portal on every pod boot to fetch compatibility updates.
+* **Permissions & UID**: The `factoriotools` container runs as internal user `factorio` (UID `845`, GID `845`). The NFS storage provisioner ensures permissions are cleanly retained across restarts.
+
+#### 4. Custom Server Settings (`server-settings.json`)
+To customize server name, visibility, and game behavior, place `server-settings.json` into the root of the data volume:
+```json
+{
+  "name": "Pluto Factorio Realm",
+  "description": "Hosted on Pluto HA K3s Cluster",
+  "tags": ["space-age", "automation"],
+  "max_players": 12,
+  "visibility": {
+    "public": true,
+    "lan": true
+  },
+  "username": "apollo",
+  "token": "YOUR_FACTORIO_AUTH_TOKEN",
+  "game_password": "",
+  "require_user_verification": true,
+  "auto_pause": true
+}
+```
+
+#### 5. Day-2 Operations & Commands
+```bash
+# View server logs and player joins
+kubectl logs -n games -l app=factorio -f
+
+# Upload existing game save directly to NFS volume
+kubectl cp /path/to/my-save.zip games/$(kubectl get pod -n games -l app=factorio -o jsonpath='{.items[0].metadata.name}'):/factorio/saves/pluto_world.zip
+
+# Restart server to load new save
+kubectl rollout restart deployment -n games factorio-server
+```
+
+---
+
+### 8.4 Team Fortress 2 Dedicated Server (`apps/tf2`) {#84-team-fortress-2-dedicated-server-appstf2}
+
+The TF2 dedicated server operates in **dual mode** hosted out of St. Louis, MO (`sv_region 0`):
+1. **Public Casual Pub (Default)**: Discoverable 24/7 on Valve's global server browser, auto-populating with bots (`tf_bot_quota 12`) when empty and cycling popular payload and control point maps.
+2. **On-Demand Comp 6s**: Players or admins can trigger an instant switch to official 6v6 tournament mode with locked class limits and SourceTV demo recording.
+
+#### 1. Directory Structure & Key Manifests
+- `apps/tf2/configmap.yaml`: Embeds `server.cfg`, `casual.cfg`, `comp_6s.cfg`, `mapcycle.txt`, and `mapcycle_6s.txt`.
+- `apps/tf2/pvc.yaml`: Requests 25Gi using `storageClassName: nfs-client` for game assets and custom maps.
+- `apps/tf2/deployment.yaml`: Features an `init-config` container that stages custom configs into `/home/steam/tf-dedicated/tf/cfg/` with UID `1000:1000`.
+- `apps/tf2/service.yaml`: Exposes game traffic (UDP 27015), RCON (TCP 27015), and SourceTV (UDP 27020).
+
+#### 2. Steam GSLT Registration & Secret Management
+To register on Valve's public master server browser, obtain a free Steam Game Server Login Token (GSLT):
+1. Visit [steamcommunity.com/dev/managegameservers](https://steamcommunity.com/dev/managegameservers).
+2. Create an account with App ID **`440`** (Team Fortress 2) and memo `Pluto TF2`.
+3. Create the secret in the cluster:
+```bash
+kubectl create secret generic tf2-secret \
+  --namespace=games \
+  --from-literal=SRCDS_TOKEN="YOUR_GSLT_TOKEN_HERE" \
+  --from-literal=SRCDS_RCONPW="YOUR_SECURE_RCON_PASSWORD"
+```
+
+#### 3. Network Ports & Router Forwarding
+Forward the following ports on your gateway router to Pluto's LAN IP:
+* **UDP 27015**: Game traffic (client connections)
+* **TCP 27015**: RCON administration
+* **UDP 27020**: SourceTV spectator broadcast
+
+#### 4. Casual Pub Mode Architecture (`casual.cfg`)
+* **Bot Auto-Fill**: `tf_bot_quota 12` with `tf_bot_quota_mode fill` ensures bots automatically fill empty slots. As human players connect, bots leave automatically.
+* **Mapcycle**: Cycles `pl_badwater`, `pl_upward`, `pl_borneo`, `cp_badlands`, `cp_granary`, `cp_gullywash_final1`, `cp_snakewater_final1`, `koth_viaduct`, `koth_harvest_final`, and `koth_lakeside_final`.
+* **Voting**: Native Source engine voting enabled (`sv_allow_votes 1`) for map change, restart game, and kick.
+
+#### 5. Competitive 6s Mode Architecture (`comp_6s.cfg`)
+* **Tournament Rules**: `mp_tournament 1` with 5CP and KOTH competitive mapcycle (`cp_process_final`, `cp_snakewater_final1`, `cp_badlands`, `cp_granary`, `cp_gullywash_final1`, `cp_sunshine`, `koth_product_final`).
+* **Class Restrictions**:
+  - Scout: 2
+  - Soldier: 2
+  - Demoman: 1
+  - Medic: 1
+  - Heavy: 1 / Pyro: 1 / Sniper: 1 / Spy: 1 / Engineer: 1
+* **SourceTV Broadcast & Recording**: Automatic STV demo recording (`tv_enable 1`, `tv_autorecord 1`) streaming on port 27020 with 90-second spectator delay.
+
+#### 6. Day-2 In-Game Operations
+Open the TF2 Developer Console (`~`) in-game:
+```bash
+# Connect to console administration
+rcon_password YOUR_SECURE_RCON_PASSWORD
+
+# Switch instantly to official 6s tournament mode
+rcon comp
+
+# Return instantly to public casual pub with bots
+rcon casual
+
+# Change current map
+rcon changelevel pl_upward
+```
+
+---
+
+### 8.5 Joplin Server & PostgreSQL (`apps/joplin`) {#85-joplin-server--postgresql-appsjoplin}
+
+Joplin Server provides end-to-end encrypted note synchronization across desktop and mobile devices, backed by a dedicated PostgreSQL 16 database.
+
+#### 1. Directory Structure & Key Manifests
+- `apps/joplin/namespace.yaml`: Defines `productivity` namespace.
+- `apps/joplin/pvc.yaml`: Requests 10Gi using `storageClassName: longhorn` (`joplin-postgres-data`).
+- `apps/joplin/postgres.yaml`: PostgreSQL 16 Alpine deployment and ClusterIP service.
+- `apps/joplin/deployment.yaml`: Joplin Server 3.7.2 application deployment.
+- `apps/joplin/service.yaml`: Internal ClusterIP service exposing port 22300.
+
+#### 2. Longhorn Replicated Block Storage Architecture
+Relational database management systems (RDBMS) like PostgreSQL rely on atomic POSIX write locks, fsync guarantees, and Write-Ahead Logging (WAL). Using NFS for database backends frequently leads to silent database corruption or locking stalls when network latencies fluctuate.
+
+To prevent this:
+* Joplin's PostgreSQL data directory (`/var/lib/postgresql/data`) is provisioned on **Longhorn**.
+* Longhorn creates synchronous, block-level 2-way replicated volumes across the fast SSDs of **`hydra`** and **`styx`**.
+* If either M920q reboots or goes offline for maintenance, the surviving node keeps PostgreSQL active with 0 data loss.
+
+#### 3. Required Secrets Setup
+```bash
+# Generate a strong password and create the secret
+DB_PASS=$(openssl rand -base64 24)
+kubectl create secret generic joplin-secret \
+  --namespace=productivity \
+  --from-literal=POSTGRES_PASSWORD="${DB_PASS}"
+```
+
+#### 4. Cloudflare Ingress Mapping
+Ensure `infrastructure/cloudflared/configmap.yaml` routes traffic to the internal Joplin service:
+```yaml
+ingress:
+  - hostname: joplin.apollan.cc
+    service: http://joplin.productivity.svc.cluster.local:22300
+```
+In Cloudflare DNS, ensure `joplin.apollan.cc` has a CNAME pointing to `<tunnel-id>.cfargotunnel.com` (Proxied).
+
+#### 5. Day-2 Onboarding & Client Configuration
+1. Open a browser and visit: `https://joplin.apollan.cc`.
+2. Log in with initial administrator credentials:
+   - **Email**: `admin@localhost`
+   - **Password**: `admin`
+3. **Change Administrator Password Immediately**: Navigate to **Profile** ➔ Update Password.
+4. **Create Personal User**: Go to **Admin** ➔ **Users** ➔ Create a personal user account for yourself.
+5. **Configure Joplin Desktop & Mobile Clients**:
+   - Open Joplin Preferences ➔ **Synchronization**.
+   - **Synchronization target**: `Joplin Server`.
+   - **Joplin server URL**: `https://joplin.apollan.cc`.
+   - **Joplin username / password**: Your personal account credentials.
+   - Click **Check synchronisation configuration** ➔ Success!
+
+---
+
+### 8.6 Zotero WebDAV & Nginx Proxy (`apps/zotero`) {#86-zotero-webdav--nginx-proxy-appszotero}
+
+The Zotero WebDAV service provides unlimited cloud file attachment synchronization for academic research papers, books, and annotations.
+
+#### 1. Directory Structure & Key Manifests
+- `apps/zotero/pvc.yaml`: Requests 20Gi using `storageClassName: longhorn` (`zotero-data`).
+- `apps/zotero/configmap.yaml`: Embeds `webdav.yaml` (Hacdias engine configuration) and `nginx.conf` (reverse proxy compatibility rules).
+- `apps/zotero/deployment.yaml`: Multi-container pod containing `webdav` backend, `nginx-proxy` sidecar, and `init-storage` setup.
+- `apps/zotero/service.yaml`: Exposes port 80 to the cluster.
+
+#### 2. The Zotero Compatibility Sidecar Problem & Solution
+Standard WebDAV servers (such as Nextcloud, Apache, or bare Hacdias) notoriously fail with the Zotero desktop client due to rigid client-side expectations:
+1. **The `MKCOL` Probe Trap**: When validating a WebDAV endpoint, the Zotero client issues an `MKCOL /zotero` HTTP request. If the directory already exists, RFC 4918 requires WebDAV servers to return `405 Method Not Allowed`. Zotero interprets this as a fatal failure and halts synchronization.
+2. **Prefix Stripping**: Zotero often prepends `/zotero` or `/zotero/zotero` to asset URLs.
+3. **Payload Limits**: Large PDF textbooks and scans trigger HTTP 413 (Payload Too Large) on standard proxies.
+4. **CORS Headers**: WebDAV engines reject cross-origin requests containing browser origin headers.
+
+**The Solution (`nginx-proxy` sidecar)**:
+```nginx
+location / {
+    # 1. Intercept MKCOL probes and force 201 Created
+    if ($request_method = MKCOL) {
+        return 201;
+    }
+
+    # 2. Strip /zotero prefixes to route cleanly to WebDAV root
+    rewrite ^/zotero/zotero/(.*)$ /$1 break;
+    rewrite ^/zotero/zotero/?$ / break;
+    rewrite ^/zotero/(.*)$ /$1 break;
+    rewrite ^/zotero/?$ / break;
+
+    # 3. Unlimited attachment sizes for books and datasets
+    client_max_body_size 0;
+
+    # 4. Strip Origin header to prevent WebDAV CORS errors
+    proxy_set_header Origin "";
+
+    # 5. Pass through essential WebDAV headers
+    proxy_set_header Depth $http_depth;
+    proxy_set_header Destination $http_destination;
+    proxy_pass http://127.0.0.1:8081;
+}
+```
+
+#### 3. User Password Configuration
+In `apps/zotero/configmap.yaml`, user authentication is managed via bcrypt:
+```yaml
+users:
+  - username: unbalance
+    password: "{bcrypt}$2b$05$vdB4P/hY/tXngTOBHxuzOun7Mm.dOISAy139getu7z5MWUdofMZru"
+    modify: true
+    permissions: "CRUD"
+```
+To generate a new bcrypt hash for a custom password:
+```bash
+nix shell nixpkgs#apacheHttpd -c htpasswd -bnBC 10 "" "yourpassword" | tr -d ':\n'
+```
+
+#### 4. Cloudflare Ingress Mapping
+In `infrastructure/cloudflared/configmap.yaml`:
+```yaml
+ingress:
+  - hostname: zotero.apollan.cc
+    service: http://zotero.productivity.svc.cluster.local:80
+```
+
+#### 5. Zotero Client Configuration & Verification
+1. Open Zotero Desktop ➔ **Preferences** (or **Settings** on macOS).
+2. Go to the **Sync** tab.
+3. Under **File Syncing**:
+   - Check **Sync attachment files in My Library using**: Select **WebDAV**.
+   - **URL**: `https://zotero.apollan.cc` (or `https://zotero.apollan.cc/zotero`).
+   - **Username**: `unbalance`.
+   - **Password**: `<your-password>`.
+4. Click **Verify Server**.
+5. Zotero connects, probes directory creation, and displays:  
+   **"File sync is successfully set up and working!"**
+
+---
+
+### 8.7 Home Assistant Core (`apps/home-assistant`) {#87-home-assistant-core-appshome-assistant}
+
+Home Assistant Core orchestrates smart home devices, telemetry, automations, and dashboards across your local network.
+
+#### 1. Directory Structure & Key Manifests
+- `apps/home-assistant/namespace.yaml`: Defines `home-automation` namespace.
+- `apps/home-assistant/pvc.yaml`: Requests 20Gi using `storageClassName: nfs-client` (`home-assistant-config`).
+- `apps/home-assistant/deployment.yaml`: Runs `ghcr.io/home-assistant/home-assistant:stable`.
+- `apps/home-assistant/service.yaml`: ClusterIP service exposing port 8123.
+
+#### 2. Network Topologies: Cluster Overlay vs Host Networking
+Home Assistant supports two operational networking modes in Kubernetes:
+* **Standard Mode (`hostNetwork: false`, Default)**: Pod runs inside the K3s flannel overlay network (`10.42.0.0/16`). Ideal for pure cloud/API integrations (Ecobee, Hue Bridge, Tailscale, Cloudflare Tunnel).
+* **Host Mode (`hostNetwork: true`)**: Bypasses the container network stack and binds directly to the physical node's network interface. **Required if you need local mDNS, SSDP, Matter, or Zigbee/Z-Wave USB device auto-discovery**.
+
+#### 3. Reverse Proxy & Trusted Proxies Configuration
+When accessed through Cloudflare Tunnel, Home Assistant rejects requests with HTTP 400 (Bad Request) unless reverse proxy headers are explicitly trusted.
+
+Ensure `/config/configuration.yaml` on the storage volume includes:
+```yaml
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 10.42.0.0/16       # K3s Pod Overlay CIDR
+    - 10.43.0.0/16       # K3s Service CIDR
+    - 192.168.1.0/24     # Local LAN Subnet
+```
+
+#### 4. Cloudflare Ingress Mapping
+In `infrastructure/cloudflared/configmap.yaml`:
+```yaml
+ingress:
+  - hostname: homeassistant.apollan.cc
+    service: http://home-assistant.home-automation.svc.cluster.local:8123
+```
+> [!NOTE]
+> In the Cloudflare Zero Trust dashboard, ensure **WebSockets** are enabled under Network settings for the tunnel domain. Home Assistant's Lovelace UI depends entirely on real-time WebSockets.
+
+#### 5. Day-2 Operations
+```bash
+# View startup logs and integration warnings
+kubectl logs -n home-automation -l app=home-assistant -f
+
+# Edit configuration.yaml directly inside pod
+kubectl exec -it -n home-automation deploy/home-assistant -- vi /config/configuration.yaml
+
+# Restart Home Assistant to apply configuration changes
+kubectl rollout restart deployment -n home-automation home-assistant
+```
+
+---
+
+### 8.8 Media Suite: Jellyfin & Servarr (`apps/jellyfin`, `apps/arr`) {#88-media-suite-jellyfin--servarr-appsjellyfin-appsarr}
+
+The media suite delivers a private, automated media streaming and indexing pipeline consisting of Jellyfin, Sonarr, Radarr, Prowlarr, and a VPN-isolated qBittorrent client.
+
+#### 1. Hardware Transcoding & Intel QuickSync Pinning (`hydra`)
+Jellyfin requires hardware-accelerated transcoding to stream 4K HEVC / H.264 content to low-power clients without pegging the CPU.
+* **Node Selection**: Pinned to **`hydra`** via `nodeSelector: gpu.vendor: intel`.
+* **Device Passthrough**: Mounts `/dev/dri` (Intel UHD Graphics 630) directly into the pod with `privileged: true`.
+* **Jellyfin Playback Settings**:
+  - In Jellyfin Dashboard ➔ **Playback** ➔ **Transcoding**:
+  - Hardware Acceleration: **Intel QuickSync (QSV)**.
+  - Enable hardware decoding for: **H.264, HEVC, MPEG2, VC1, VP9, AV1**.
+  - Enable **VPP Tone Mapping** and **Low-Power Encoding**.
+
+#### 2. qBittorrent & Gluetun Surfshark VPN Sidecar Kill-Switch
+To protect privacy and prevent torrent traffic leaks:
+* Container `gluetun` establishes a WireGuard tunnel directly to Surfshark servers in the Netherlands.
+* Container `qbittorrent` shares the network namespace (`container:gluetun`), meaning **if the VPN drops, all torrent networking instantly severs (strict kill-switch)**.
+* Required Secret:
+  ```bash
+  kubectl create secret generic surfshark-vpn-secret \
+    --namespace=media \
+    --from-literal=WIREGUARD_PRIVATE_KEY="YOUR_SURFSHARK_WG_KEY" \
+    --from-literal=WIREGUARD_ADDRESSES="10.14.0.2/16"
+  ```
+* Local Cluster Access: Gluetun's `FIREWALL_OUTBOUND_SUBNETS` is configured with `10.42.0.0/16,192.168.0.0/16` so Radarr, Sonarr, and your browser can reach the qBittorrent WebUI on port 8080 without leaking torrent traffic.
+
+#### 3. Central Sol ZFS Storage Integration
+All media workloads share the high-capacity NFS volume from Sol:
+* `jellyfin-media` mounts `/tank/media` (or `/tank/k3s-volumes/media`) to `/media` across Jellyfin and qBittorrent.
+* Individual config volumes (`jellyfin-config`, `qbittorrent-config`, `radarr-config`, `sonarr-config`, `prowlarr-config`) store database indexes and application state.
+
+#### 4. Automated Servarr Pipeline Workflow
+1. **Prowlarr (Indexers)**: Synchronizes trackers and torrent search providers with Radarr and Sonarr via internal service endpoints:
+   - Sonarr URL: `http://sonarr.media.svc.cluster.local:8989`
+   - Radarr URL: `http://radarr.media.svc.cluster.local:7878`
+2. **Download Client**: Both Radarr and Sonarr are configured with download client:
+   - Host: `qbittorrent.media.svc.cluster.local` (Port: `8080`).
+3. **Automated Organization**:
+   - Completed movies ➔ `/media/movies`.
+   - Completed TV shows ➔ `/media/tv`.
+4. **Jellyfin Notification**: Jellyfin automatically scans `/media` upon file system updates, immediately presenting media to streaming clients.
 
 ---
 
