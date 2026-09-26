@@ -90,6 +90,7 @@ export default defineConfig({
             { text: 'External Game Access & DDNS', link: '/fleet/pluto-cluster/external-access' },
             { text: 'Workload Migration Runbook', link: '/fleet/pluto-cluster/migration' },
             { text: 'Venus ➔ Pluto Transfer Guide', link: '/fleet/pluto-cluster/transfer' },
+            { text: 'Network Relocation & VLAN Runbook', link: '/fleet/pluto-cluster/relocation' },
           ]
         },
         {
