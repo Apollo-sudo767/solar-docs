@@ -30,6 +30,8 @@ This guide provides step-by-step instructions for obtaining, creating, and encry
 | `secrets/surfshark-vpn.age` | `surfshark-vpn-secret` | `media` | `qbittorrent` (`gluetun` VPN sidecar) |
 | `secrets/cloudflared-credentials.age` | `cloudflared-credentials` | `cloudflared` | Cloudflare Ingress Tunnel (`cloudflared`) |
 | `secrets/joplin-secret.age` | `joplin-secret` | `productivity` | Joplin Server & PostgreSQL (`POSTGRES_PASSWORD`) |
+| `secrets/cluster-passwd.age` | `/run/agenix/password-apollo.age` (NixOS level) | N/A | Dedicated login password for `pluto`, `styx`, `hydra` |
+| `secrets/cloudflare-ddns-token.age` | `cloudflare-ddns-secret` | `infrastructure` | Cloudflare Dynamic DNS (`favonia/cloudflare-ddns`) |
 
 ---
 

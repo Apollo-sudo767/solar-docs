@@ -23,6 +23,7 @@ export default defineConfig({
           { text: 'Workload Migration Runbook', link: '/fleet/pluto-cluster/migration' },
           { text: 'Venus ➔ Pluto Transfer Guide', link: '/fleet/pluto-cluster/transfer' },
           { text: 'Secrets & Security Guide', link: '/fleet/pluto-cluster/secrets' },
+          { text: 'External Game Access & DDNS', link: '/fleet/pluto-cluster/external-access' },
           { text: 'Setup & Operations Guide', link: '/fleet/pluto-cluster/setup' }
         ]
       },
@@ -61,6 +62,7 @@ export default defineConfig({
             { text: 'Workload Migration Runbook', link: '/fleet/pluto-cluster/migration' },
             { text: 'Venus ➔ Pluto Transfer Guide', link: '/fleet/pluto-cluster/transfer' },
             { text: 'Secrets & Security Guide', link: '/fleet/pluto-cluster/secrets' },
+            { text: 'External Game Access & DDNS', link: '/fleet/pluto-cluster/external-access' },
             { text: 'Setup & Operations Guide', link: '/fleet/pluto-cluster/setup' },
           ]
         },
@@ -85,6 +87,7 @@ export default defineConfig({
             { text: 'Cluster Architecture', link: '/fleet/pluto-cluster' },
             { text: 'Setup & Operations Guide', link: '/fleet/pluto-cluster/setup' },
             { text: 'Secrets & Security Guide', link: '/fleet/pluto-cluster/secrets' },
+            { text: 'External Game Access & DDNS', link: '/fleet/pluto-cluster/external-access' },
             { text: 'Workload Migration Runbook', link: '/fleet/pluto-cluster/migration' },
             { text: 'Venus ➔ Pluto Transfer Guide', link: '/fleet/pluto-cluster/transfer' },
           ]

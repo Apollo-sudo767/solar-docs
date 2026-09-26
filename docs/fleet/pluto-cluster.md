@@ -5,6 +5,7 @@ The **Pluto Cluster** is a 3-node, High-Availability Kubernetes (K3s) GitOps clu
 ::: tip 📖 Operational Guides & Runbooks
 - **[Setup & Operations Guide](/fleet/pluto-cluster/setup)**: Complete bootstrapping, hardware specs, node lifecycle, and day-2 operations.
 - **[Secrets & Security Guide](/fleet/pluto-cluster/secrets)**: Zero-plaintext GitOps, Agenix rekeying, and Kubernetes secret injection.
+- **[External Game Access & DDNS](/fleet/pluto-cluster/external-access)**: Direct port forwarding, Cloudflare DDNS, and cluster password isolation.
 - **[Workload Migration Runbook](/fleet/pluto-cluster/migration)**: Database dumps, WebDAV rsync, Factorio saves, and symlink dereferencing.
 - **[Venus ➔ Pluto Transfer Guide](/fleet/pluto-cluster/transfer)**: Step-by-step operational guide for transitioning from bare-metal Venus to Hydra to Pluto.
 :::
