@@ -156,7 +156,15 @@ Configure the following router port forwarding rules targeting **Pluto's local V
 | **TF2 SourceTV** | UDP | `27020` | `27020` | Pluto's VLAN IP |
 | **Factorio Dedicated** | UDP | `34197` | `34197` | Pluto's VLAN IP |
 
-*(Note: Joplin and Zotero use Cloudflare Tunnel and do **not** require any port forwarding).*
+> [!NOTE] Why Pluto Specifically?
+> 1. **Compute Node Affinity**: Pluto is the primary compute node (Ryzen 7 5825U, 32GB RAM, 1TB NVMe). Game server deployments (`minecraft`, `tf2`, `factorio`) have `nodeAffinity` targeting `node.type=compute` and only schedule on Pluto.
+> 2. **`hostPort` Binding**: Game workloads use `hostPort` (e.g. `25565`), which physically opens the port directly on Pluto's network interface.
+> 3. **Firewall Policy**: Only Pluto's NixOS configuration has the game ports (`25565`, `24454`, `27015`, `34197`) open in `networking.firewall`.
+>
+> *(Joplin, Zotero, and other Cloudflare Tunnel services use encrypted outbound tunnels and do **not** care about Pluto or port forwarding).*
+
+> [!TIP] Does Pluto need a static IP configured in NixOS?
+> **No.** Pluto uses dynamic DHCP on its physical interface (`eno1`). The **DHCP Reservation** is configured strictly on the router side so the router's port forwarding rules don't become stale if a lease renews.
 
 ---
 
